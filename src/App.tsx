@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FunctionComponent } from "react";
+import { Route, Switch } from "react-router-dom";
+import Template from "components/templates/AuthenticatedTemplate";
+import Login from "components/pages/Login";
+import Page1 from "components/pages/Page1";
+import Page2 from "components/pages/Page2";
+import Page3 from "components/pages/Page3";
 
-const App: React.FC = () => {
+const App: FunctionComponent = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Template>
+      <Switch>
+        <Route path="/" exact component={Login} />
+        <Route path="/Page1" exact component={Page1} />
+        <Route path="/Page2" exact component={Page2} />
+        <Route path="/Page3" exact component={Page3} />
+      </Switch>
+    </Template>
   );
-}
+};
 
 export default App;
