@@ -34,7 +34,7 @@ const StyledLable = styled.label`
 
 interface Props extends BaseProps {}
 
-const PasswordTextBox: FunctionComponent<Props> = () => (
+const Password: FunctionComponent<Props> = () => (
   <StyledLable>
     <span>パスワード</span>
     <TextBox type="password" name="password" required />
@@ -42,4 +42,4 @@ const PasswordTextBox: FunctionComponent<Props> = () => (
   </StyledLable>
 );
 
-export default PasswordTextBox;
+export default Password;

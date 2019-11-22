@@ -47,7 +47,11 @@ const HeaderRight = styled.div`
   }
 `;
 
-const Header: FunctionComponent = () => (
+interface Props {
+  logoutClick: () => void;
+}
+
+const Header: FunctionComponent<Props> = ({ logoutClick }) => (
   <StyledHeader>
     <HeaderRow>
       <HeaderLeft>
@@ -55,7 +59,7 @@ const Header: FunctionComponent = () => (
       </HeaderLeft>
       <HeaderRight>
         <LoginUserName name="テストユーザ" />
-        <LogoutButton />
+        <LogoutButton onClick={logoutClick} />
       </HeaderRight>
     </HeaderRow>
     <Menu />

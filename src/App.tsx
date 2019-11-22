@@ -1,21 +1,23 @@
 import React, { FunctionComponent } from "react";
-import { Route, Switch } from "react-router-dom";
-import Template from "components/templates/AuthenticatedTemplate";
-import Login from "components/pages/Login";
+import { Router, Route, Switch } from "react-router-dom";
+import createBrowserHistory from "history/createBrowserHistory";
+import LoginPage from "components/pages/LoginPage";
 import Page1 from "components/pages/Page1";
 import Page2 from "components/pages/Page2";
 import Page3 from "components/pages/Page3";
 
+const history = createBrowserHistory();
+
 const App: FunctionComponent = () => {
   return (
-    <Template>
+    <Router history={history}>
       <Switch>
-        <Route path="/" exact component={Login} />
-        <Route path="/Page1" exact component={Page1} />
-        <Route path="/Page2" exact component={Page2} />
-        <Route path="/Page3" exact component={Page3} />
+        <Route exact path="/" component={LoginPage} />
+        <Route exact path="/Page1" component={Page1} />
+        <Route exact path="/Page2" component={Page2} />
+        <Route exact path="/Page3" component={Page3} />
       </Switch>
-    </Template>
+    </Router>
   );
 };
 

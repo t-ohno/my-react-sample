@@ -1,11 +1,12 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
-import {
-  Props as ButtonProps,
-  StyledButton as BaseStyledButton
-} from "./Button";
+import { Props as BaseProps, BaseStyledButton } from "./Button";
 
-export const StyledLoginButton = styled(BaseStyledButton)`
+export const StyledLoginButton = styled(BaseStyledButton).attrs({
+  type: "submit"
+})`
+  padding: 0;
+  border: none;
   background: transparent url("/assets/images/buttons/loginbutton_up.png")
     center center no-repeat;
   width: 99px;
@@ -16,10 +17,8 @@ export const StyledLoginButton = styled(BaseStyledButton)`
   }
 `;
 
-interface Props extends ButtonProps {}
+interface Props extends BaseProps {}
 
-const LoginButton: FunctionComponent<Props> = ({ type = "submit" }) => (
-  <StyledLoginButton type={type} />
-);
+const LoginButton: FunctionComponent<Props> = () => <StyledLoginButton />;
 
 export default LoginButton;

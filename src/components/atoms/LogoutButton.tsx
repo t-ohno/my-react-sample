@@ -1,14 +1,14 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
-import {
-  Props as ButtonProps,
-  StyledButton as BaseStyledButton
-} from "./Button";
+import { Props as BaseProps, BaseStyledButton } from "./Button";
 
-export const StyledLogoutButton = styled(BaseStyledButton)`
+export const StyledLogoutButton = styled(BaseStyledButton).attrs({
+  type: "button"
+})`
+  padding: 0;
+  border: none;
   background: transparent url("/assets/images/buttons/logoutbutton_up.png")
     center center no-repeat;
-  border: none;
   width: 122px;
   height: 38px;
 
@@ -17,7 +17,7 @@ export const StyledLogoutButton = styled(BaseStyledButton)`
   }
 `;
 
-interface Props extends ButtonProps {}
+interface Props extends BaseProps {}
 
 const LogoutButton: FunctionComponent<Props> = () => <StyledLogoutButton />;
 

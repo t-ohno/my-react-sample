@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 import TextBox, { Props as BaseProps } from "components/atoms/TextBox";
 
-const StyledLable = styled.label`
+export const StyledUsername = styled.label`
   display: inline-block;
   height: 30px;
 
@@ -34,12 +34,12 @@ const StyledLable = styled.label`
 
 interface Props extends BaseProps {}
 
-const UserIdTextBox: FunctionComponent<Props> = () => (
-  <StyledLable>
+const Username: FunctionComponent<Props> = () => (
+  <StyledUsername>
     <span>ユーザーID</span>
     <TextBox name="username" required />
     <span>*</span>
-  </StyledLable>
+  </StyledUsername>
 );
 
-export default UserIdTextBox;
+export default Username;

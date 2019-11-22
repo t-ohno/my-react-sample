@@ -1,10 +1,9 @@
 import React, { FunctionComponent } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 import styled from "styled-components";
 import BaseHeader from "components/organisms/Header";
 import BaseFooter from "components/organisms/Footer";
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   display: grid;
   grid-template-columns: 1fr;
   grid-column-gap: 10px;
@@ -42,13 +41,11 @@ interface Props {
 
 const AuthenticatedTemplate: FunctionComponent<Props> = ({ children }) => {
   return (
-    <Router>
-      <Wrapper>
-        <Header />
-        <Main>{children}</Main>
-        <Footer />
-      </Wrapper>
-    </Router>
+    <Wrapper>
+      <Header logoutClick={() => (window.location.pathname = "/Page2")} />
+      <Main>{children}</Main>
+      <Footer />
+    </Wrapper>
   );
 };
 
