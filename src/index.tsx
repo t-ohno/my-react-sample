@@ -4,9 +4,17 @@ import "index.css";
 import * as serviceWorker from "serviceWorker";
 import App from "App";
 import { Provider } from "react-redux";
-import { setupStore } from "store";
+import "i18n";
+import rootReducer from "reducers/rootReducer";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 
-const store = setupStore();
+const initialState = {
+  language: "ja",
+  counter: 0
+};
+
+const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>

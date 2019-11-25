@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -43,20 +44,24 @@ const StyledMenu = styled.nav`
   }
 `;
 
-const Menu: FunctionComponent = () => (
-  <StyledMenu>
-    <ul>
-      <li>
-        <Link to="/Page1">Page1</Link>
-      </li>
-      <li>
-        <Link to="/Page2">Page2</Link>
-      </li>
-      <li>
-        <Link to="/Page3">Page3</Link>
-      </li>
-    </ul>
-  </StyledMenu>
-);
+const Menu: FunctionComponent = () => {
+  const [t] = useTranslation();
+
+  return (
+    <StyledMenu>
+      <ul>
+        <li>
+          <Link to="/Page1">{t("menu.menu1.title")}</Link>
+        </li>
+        <li>
+          <Link to="/Page2">{t("menu.menu2.title")}</Link>
+        </li>
+        <li>
+          <Link to="/Page3">{t("menu.menu3.title")}</Link>
+        </li>
+      </ul>
+    </StyledMenu>
+  );
+};
 
 export default Menu;

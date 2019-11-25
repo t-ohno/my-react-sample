@@ -1,0 +1,40 @@
+{
+  "lang": {
+    "en": "English",
+    "ja": "Japanese"
+  },
+  "header": {
+    "userName": "Welcome {{name}}"
+  },
+  "footer": {
+    "copyright": "footer area"
+  },
+  "menu": {
+    "menu1": {
+      "title": "Page1"
+    },
+    "menu2": {
+      "title": "Page2"
+    },
+    "menu3": {
+      "title": "Page3"
+    }
+  },
+  "pages": {
+    "loginPage": {
+      "username": "Username",
+      "password": "Password"
+    },
+    "page1": {
+      "title": "Page1"
+    },
+    "page2": {
+      "title": "Page2",
+      "buttonName": "button"
+    },
+    "page3": {
+      "title": "Page3",
+      "buttonName": "Show modal"
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { StyledImg as BaseStyledImg } from "components/atoms/Logo";
 import Username from "components/molecules/Username";
@@ -24,11 +25,13 @@ const LoginButton = styled(BaseStyledLoginButton)`
 `;
 
 const LoginPage: FunctionComponent = () => {
+  const [t] = useTranslation();
+
   return (
     <Wrapper>
       <Logo src="/assets/images/logo.svg" alt="logo" />
-      <Username />
-      <Password />
+      <Username label={t("pages.loginPage.username")} />
+      <Password label={t("pages.loginPage.password")} />
       <LoginButton onClick={() => (window.location.pathname = "/Page1")} />
     </Wrapper>
   );

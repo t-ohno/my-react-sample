@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 import Logo from "components/atoms/Logo";
 import Menu from "components/molecules/Menu";
+import ChangeLanguage from "components/molecules/ChangeLanguage";
 import LoginUserName from "components/atoms/LoginUserName";
 import LogoutButton from "components/atoms/LogoutButton";
 
@@ -56,9 +57,10 @@ const Header: FunctionComponent<Props> = ({ logoutClick }) => (
     <HeaderRow>
       <HeaderLeft>
         <Logo />
+        <ChangeLanguage />
       </HeaderLeft>
       <HeaderRight>
-        <LoginUserName name="テストユーザ" />
+        <LoginUserName name="TestUser" />
         <LogoutButton onClick={logoutClick} />
       </HeaderRight>
     </HeaderRow>

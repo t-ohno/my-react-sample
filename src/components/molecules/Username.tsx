@@ -32,11 +32,13 @@ export const StyledUsername = styled.label`
   }
 `;
 
-interface Props extends BaseProps {}
+interface Props extends BaseProps {
+  label: string;
+}
 
-const Username: FunctionComponent<Props> = () => (
+const Username: FunctionComponent<Props> = ({ label }) => (
   <StyledUsername>
-    <span>ユーザーID</span>
+    <span>{label}</span>
     <TextBox name="username" required />
     <span>*</span>
   </StyledUsername>

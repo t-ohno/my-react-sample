@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
-import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
 import counterModule from "modules/counterModule";
 import Button from "components/atoms/Button";
 
@@ -25,6 +25,7 @@ const BoxCounter: FunctionComponent = () => {
 
   const increment = () => dispatch(counterModule.actions.increment());
   const decrement = () => dispatch(counterModule.actions.decrement());
+  const reset = () => dispatch(counterModule.actions.reset());
 
   return (
     <Wrapper>
@@ -35,6 +36,7 @@ const BoxCounter: FunctionComponent = () => {
       <Buttons>
         <Button text="+" onClick={increment} />
         <Button text="-" onClick={decrement} />
+        <Button text="reset" onClick={reset} />
       </Buttons>
     </Wrapper>
   );

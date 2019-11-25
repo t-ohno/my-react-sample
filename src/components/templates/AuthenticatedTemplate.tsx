@@ -39,11 +39,11 @@ interface Props {
   children: React.ReactNode;
 }
 
-const AuthenticatedTemplate: FunctionComponent<Props> = ({ children }) => {
+const AuthenticatedTemplate: FunctionComponent<Props> = props => {
   return (
     <Wrapper>
       <Header logoutClick={() => (window.location.pathname = "/Page2")} />
-      <Main>{children}</Main>
+      <Main>{props.children}</Main>
       <Footer />
     </Wrapper>
   );

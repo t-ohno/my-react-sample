@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 export const StyledSpan = styled.span`
@@ -26,8 +27,10 @@ interface Props {
   name: string;
 }
 
-const LoginUserName: FunctionComponent<Props> = ({ name }) => (
-  <StyledSpan>こんにちは {name} 様</StyledSpan>
-);
+const LoginUserName: FunctionComponent<Props> = ({ name }) => {
+  const [t] = useTranslation();
+
+  return <StyledSpan>{t("header.userName", { name })}</StyledSpan>;
+};
 
 export default LoginUserName;

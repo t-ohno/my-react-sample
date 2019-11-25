@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 const StyledFooter = styled.footer`
@@ -14,10 +15,14 @@ const StyledFooter = styled.footer`
   }
 `;
 
-const Footer: FunctionComponent = () => (
-  <StyledFooter>
-    <p>フッター</p>
-  </StyledFooter>
-);
+const Footer: FunctionComponent = () => {
+  const [t] = useTranslation();
+
+  return (
+    <StyledFooter>
+      <p>{t("footer.copyright")}</p>
+    </StyledFooter>
+  );
+};
 
 export default Footer;

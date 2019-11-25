@@ -32,11 +32,13 @@ const StyledLable = styled.label`
   }
 `;
 
-interface Props extends BaseProps {}
+interface Props extends BaseProps {
+  label: string;
+}
 
-const Password: FunctionComponent<Props> = () => (
+const Password: FunctionComponent<Props> = ({ label }) => (
   <StyledLable>
-    <span>パスワード</span>
+    <span>{label}</span>
     <TextBox type="password" name="password" required />
     <span>*</span>
   </StyledLable>

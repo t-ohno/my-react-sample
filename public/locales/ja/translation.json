@@ -1,0 +1,40 @@
+{
+  "lang": {
+    "en": "英語",
+    "ja": "日本語"
+  },
+  "header": {
+    "userName": "こんにちは {{name}} 様"
+  },
+  "footer": {
+    "copyright": "フッター領域"
+  },
+  "menu": {
+    "menu1": {
+      "title": "ページ１"
+    },
+    "menu2": {
+      "title": "ページ２"
+    },
+    "menu3": {
+      "title": "ページ３"
+    }
+  },
+  "pages": {
+    "loginPage": {
+      "username": "ユーザーID",
+      "password": "パスワード"
+    },
+    "page1": {
+      "title": "ページ１"
+    },
+    "page2": {
+      "title": "ページ２",
+      "buttonName": "ボタン"
+    },
+    "page3": {
+      "title": "ページ３",
+      "buttonName": "モーダル画面を表示"
+    }
+  }
+}
