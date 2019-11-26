@@ -1,11 +1,11 @@
-import React, { FunctionComponent } from "react";
-import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
-import languageModule from "modules/languageModule";
+import React, { FunctionComponent } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import languageModule from 'modules/languageModule';
 
 const supportLanguages = [
-  { value: "en", labelKey: "lang.en" },
-  { value: "ja", labelKey: "lang.ja" }
+  { value: 'en', labelKey: 'lang.en' },
+  { value: 'ja', labelKey: 'lang.ja' }
 ];
 
 const ChangeLanguage: FunctionComponent = () => {
@@ -14,8 +14,7 @@ const ChangeLanguage: FunctionComponent = () => {
 
   const [t, i18n] = useTranslation();
 
-  const setLang = (newValue: string) =>
-    dispatch(languageModule.actions.lang(newValue));
+  const setLang = (newValue: string) => dispatch(languageModule.actions.lang(newValue));
 
   return (
     <select

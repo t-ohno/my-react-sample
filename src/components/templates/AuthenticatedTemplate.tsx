@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from "react";
-import styled from "styled-components";
-import BaseHeader from "components/organisms/Header";
-import BaseFooter from "components/organisms/Footer";
+import React, { FunctionComponent } from 'react';
+import styled from 'styled-components';
+import BaseHeader from 'components/organisms/Header';
+import BaseFooter from 'components/organisms/Footer';
 
 const Wrapper = styled.section`
   display: grid;
@@ -9,9 +9,9 @@ const Wrapper = styled.section`
   grid-column-gap: 10px;
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
-    "header"
-    "content"
-    "footer";
+    'header'
+    'content'
+    'footer';
   border: 4px solid #0582dc;
   background-color: rgba(255, 255, 255, 1);
   height: 100%;
@@ -42,7 +42,7 @@ interface Props {
 const AuthenticatedTemplate: FunctionComponent<Props> = props => {
   return (
     <Wrapper>
-      <Header logoutClick={() => (window.location.pathname = "/Page2")} />
+      <Header logoutClick={() => (window.location.pathname = '/Page2')} />
       <Main>{props.children}</Main>
       <Footer />
     </Wrapper>

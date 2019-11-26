@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from "react";
-import styled from "styled-components";
-import TextBox, { Props as BaseProps } from "components/atoms/TextBox";
+import React, { FunctionComponent } from 'react';
+import styled from 'styled-components';
+import TextBox, { Props as BaseProps } from 'components/atoms/TextBox';
 
 export const StyledUsername = styled.label`
   display: inline-block;
@@ -8,6 +8,7 @@ export const StyledUsername = styled.label`
 
   span {
     display: inline-block;
+    min-width: 120px;
     line-height: 30px;
 
     :first-child {
@@ -18,9 +19,8 @@ export const StyledUsername = styled.label`
         position: absolute;
         top: 0;
         left: 0;
-        content: "";
-        background: transparent url("/assets/images/icons/userIdIcon.png")
-          center left no-repeat;
+        content: '';
+        background: transparent url('/assets/images/icons/userIdIcon.png') center left no-repeat;
         width: 30px;
         height: 30px;
       }

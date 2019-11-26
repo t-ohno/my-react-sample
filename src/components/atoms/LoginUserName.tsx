@@ -1,6 +1,5 @@
-import React, { FunctionComponent } from "react";
-import { useTranslation } from "react-i18next";
-import styled from "styled-components";
+import React, { FunctionComponent } from 'react';
+import styled from 'styled-components';
 
 export const StyledSpan = styled.span`
   display: inline-block;
@@ -9,15 +8,15 @@ export const StyledSpan = styled.span`
   height: 38px;
   line-height: 38px;
   font-size: 0.9em;
+  color: rgba(0, 0, 0, 1);
 
   &::before {
     display: inline-block;
     position: absolute;
     top: 0;
     left: 0;
-    content: "";
-    background: transparent url("/assets/images/icons/userIcon.png") center
-      center no-repeat;
+    content: '';
+    background: transparent url('/assets/images/icons/userIcon.png') center center no-repeat;
     width: 24px;
     height: 38px;
   }
@@ -27,10 +26,6 @@ interface Props {
   name: string;
 }
 
-const LoginUserName: FunctionComponent<Props> = ({ name }) => {
-  const [t] = useTranslation();
-
-  return <StyledSpan>{t("header.userName", { name })}</StyledSpan>;
-};
+const LoginUserName: FunctionComponent<Props> = ({ name }) => <StyledSpan>{name}</StyledSpan>;
 
 export default LoginUserName;

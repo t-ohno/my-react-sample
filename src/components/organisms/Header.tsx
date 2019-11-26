@@ -1,10 +1,11 @@
-import React, { FunctionComponent } from "react";
-import styled from "styled-components";
-import Logo from "components/atoms/Logo";
-import Menu from "components/molecules/Menu";
-import ChangeLanguage from "components/molecules/ChangeLanguage";
-import LoginUserName from "components/atoms/LoginUserName";
-import LogoutButton from "components/atoms/LogoutButton";
+import React, { FunctionComponent } from 'react';
+import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
+import Logo from 'components/atoms/Logo';
+import Menu from 'components/molecules/Menu';
+import ChangeLanguage from 'components/molecules/ChangeLanguage';
+import LoginUserName from 'components/atoms/LoginUserName';
+import LogoutButton from 'components/atoms/LogoutButton';
 
 const StyledHeader = styled.header`
   flex-direction: row;
@@ -52,20 +53,24 @@ interface Props {
   logoutClick: () => void;
 }
 
-const Header: FunctionComponent<Props> = ({ logoutClick }) => (
-  <StyledHeader>
-    <HeaderRow>
-      <HeaderLeft>
-        <Logo />
-        <ChangeLanguage />
-      </HeaderLeft>
-      <HeaderRight>
-        <LoginUserName name="TestUser" />
-        <LogoutButton onClick={logoutClick} />
-      </HeaderRight>
-    </HeaderRow>
-    <Menu />
-  </StyledHeader>
-);
+const Header: FunctionComponent<Props> = ({ logoutClick }) => {
+  const [t] = useTranslation();
+
+  return (
+    <StyledHeader>
+      <HeaderRow>
+        <HeaderLeft>
+          <Logo />
+          <ChangeLanguage />
+        </HeaderLeft>
+        <HeaderRight>
+          <LoginUserName name={t('organisms.header.loginUserName', { name: 'TestUser' })} />
+          <LogoutButton onClick={logoutClick} />
+        </HeaderRight>
+      </HeaderRow>
+      <Menu />
+    </StyledHeader>
+  );
+};
 
 export default Header;

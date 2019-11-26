@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from "react";
-import { useTranslation } from "react-i18next";
-import styled from "styled-components";
+import React, { FunctionComponent } from 'react';
+import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
   display: flex;
@@ -20,7 +20,7 @@ const Footer: FunctionComponent = () => {
 
   return (
     <StyledFooter>
-      <p>{t("footer.copyright")}</p>
+      <p>{t('organisms.footer.copyright')}</p>
     </StyledFooter>
   );
 };

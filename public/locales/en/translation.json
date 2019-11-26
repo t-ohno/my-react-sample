@@ -3,21 +3,41 @@
     "en": "English",
     "ja": "Japanese"
   },
-  "header": {
-    "userName": "Welcome {{name}}"
-  },
-  "footer": {
-    "copyright": "footer area"
-  },
-  "menu": {
-    "menu1": {
-      "title": "Page1"
+  "molecules": {
+    "menu": {
+      "menu1": {
+        "title": "Page1"
+      },
+      "menu2": {
+        "title": "Page2"
+      },
+      "menu3": {
+        "title": "Page3"
+      }
     },
-    "menu2": {
-      "title": "Page2"
+    "boxCounter": {
+      "button": {
+        "increment": {
+          "text": "+",
+          "tooltip": "increment button"
+        },
+        "decrement": {
+          "text": "-",
+          "tooltip": "decrement button"
+        },
+        "reset": {
+          "text": "reset",
+          "tooltip": "reset button"
+        }
+      }
+    }
+  },
+  "organisms": {
+    "header": {
+      "loginUserName": "Hi {{name}}, Welcome to sample project."
     },
-    "menu3": {
-      "title": "Page3"
+    "footer": {
+      "copyright": "footer area"
     }
   },
   "pages": {
@@ -26,10 +46,16 @@
       "password": "Password"
     },
     "page1": {
-      "title": "Page1"
+      "title": "Page1",
+      "boxCounter": {
+        "label": "Count:"
+      }
     },
     "page2": {
       "title": "Page2",
+      "datePicker": {
+        "dateFormat": "MM-dd-yyyy"
+      },
       "buttonName": "button"
     },
     "page3": {

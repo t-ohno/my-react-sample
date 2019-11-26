@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from "react";
-import styled from "styled-components";
+import React, { FunctionComponent } from 'react';
+import styled from 'styled-components';
 
 export const StyledLink = styled.a`
   cursor: pointer;
@@ -13,18 +13,8 @@ interface Props {
   children: React.ReactNode;
 }
 
-const Link: FunctionComponent<Props> = ({
-  className,
-  href,
-  target = "_self",
-  children
-}) => (
-  <StyledLink
-    className={className}
-    href={href}
-    target={target}
-    rel="noopener noreferrer"
-  >
+const Link: FunctionComponent<Props> = ({ className, href, target = '_self', children }) => (
+  <StyledLink className={className} href={href} target={target} rel="noopener noreferrer">
     {children}
   </StyledLink>
 );

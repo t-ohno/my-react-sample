@@ -1,23 +1,43 @@
 {
   "lang": {
-    "en": "英語",
-    "ja": "日本語"
+    "en": "English",
+    "ja": "Japanese"
   },
-  "header": {
-    "userName": "こんにちは {{name}} 様"
-  },
-  "footer": {
-    "copyright": "フッター領域"
-  },
-  "menu": {
-    "menu1": {
-      "title": "ページ１"
+  "molecules": {
+    "menu": {
+      "menu1": {
+        "title": "ページ１"
+      },
+      "menu2": {
+        "title": "ページ２"
+      },
+      "menu3": {
+        "title": "ページ３"
+      }
     },
-    "menu2": {
-      "title": "ページ２"
+    "boxCounter": {
+      "button": {
+        "increment": {
+          "text": "+",
+          "tooltip": "インクリメントボタン"
+        },
+        "decrement": {
+          "text": "-",
+          "tooltip": "デクリメントボタン"
+        },
+        "reset": {
+          "text": "リセット",
+          "tooltip": "リセットボタン"
+        }
+      }
+    }
+  },
+  "organisms": {
+    "header": {
+      "loginUserName": "こんにちは {{name}} 様"
     },
-    "menu3": {
-      "title": "ページ３"
+    "footer": {
+      "copyright": "フッター領域"
     }
   },
   "pages": {
@@ -26,10 +46,16 @@
       "password": "パスワード"
     },
     "page1": {
-      "title": "ページ１"
+      "title": "ページ１",
+      "boxCounter": {
+        "label": "カウント数："
+      }
     },
     "page2": {
       "title": "ページ２",
+      "datePicker": {
+        "dateFormat": "yyyy-MM-dd"
+      },
       "buttonName": "ボタン"
     },
     "page3": {

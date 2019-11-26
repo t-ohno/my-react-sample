@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from "react";
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import React, { FunctionComponent } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 const StyledMenu = styled.nav`
   ul {
@@ -51,13 +51,13 @@ const Menu: FunctionComponent = () => {
     <StyledMenu>
       <ul>
         <li>
-          <Link to="/Page1">{t("menu.menu1.title")}</Link>
+          <Link to="/Page1">{t('molecules.menu.menu1.title')}</Link>
         </li>
         <li>
-          <Link to="/Page2">{t("menu.menu2.title")}</Link>
+          <Link to="/Page2">{t('molecules.menu.menu2.title')}</Link>
         </li>
         <li>
-          <Link to="/Page3">{t("menu.menu3.title")}</Link>
+          <Link to="/Page3">{t('molecules.menu.menu3.title')}</Link>
         </li>
       </ul>
     </StyledMenu>

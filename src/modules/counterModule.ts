@@ -1,8 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 // createSlice() で actions と reducers を一気に生成
 const counterModule = createSlice({
-  name: "counter",
+  name: 'counter',
   initialState: 0,
   reducers: {
     increment: state => state + 1,

@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from "react";
-import { useTranslation } from "react-i18next";
-import styled from "styled-components";
-import { StyledImg as BaseStyledImg } from "components/atoms/Logo";
-import Username from "components/molecules/Username";
-import Password from "components/molecules/Password";
-import { StyledLoginButton as BaseStyledLoginButton } from "components/atoms/LoginButton";
+import React, { FunctionComponent } from 'react';
+import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
+import { StyledImg as BaseStyledImg } from 'components/atoms/Logo';
+import Username from 'components/molecules/Username';
+import Password from 'components/molecules/Password';
+import { StyledLoginButton as BaseStyledLoginButton } from 'components/atoms/LoginButton';
 
 const Wrapper = styled.section`
   display: grid;
@@ -30,9 +30,9 @@ const LoginPage: FunctionComponent = () => {
   return (
     <Wrapper>
       <Logo src="/assets/images/logo.svg" alt="logo" />
-      <Username label={t("pages.loginPage.username")} />
-      <Password label={t("pages.loginPage.password")} />
-      <LoginButton onClick={() => (window.location.pathname = "/Page1")} />
+      <Username label={t('pages.loginPage.username')} />
+      <Password label={t('pages.loginPage.password')} />
+      <LoginButton onClick={() => (window.location.pathname = '/Page1')} />
     </Wrapper>
   );
 };
