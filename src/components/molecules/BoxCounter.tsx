@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import counterModule from 'modules/counterModule';
 import Button, { ButtonProps } from 'components/atoms/Button';
-import { Tooltip } from 'react-tippy';
 
 const Wrapper = styled.div`
   display: flex;
@@ -23,7 +22,7 @@ const Wrapper = styled.div`
 `;
 
 const Buttons = styled.div`
-  > div + div {
+  > button + button {
     margin-left: 5px;
   }
 `;
@@ -39,16 +38,19 @@ const BoxCounter: FunctionComponent<Props> = ({ label }) => {
   const counter = useSelector<any, any>(state => state.counter);
 
   const incrementProps: ButtonProps = {
+    tooltip: t('molecules.boxCounter.button.increment.tooltip'),
     children: t('molecules.boxCounter.button.increment.text'),
     onClick: () => dispatch(counterModule.actions.increment())
   };
 
   const decrementProps: ButtonProps = {
+    tooltip: t('molecules.boxCounter.button.decrement.tooltip'),
     children: t('molecules.boxCounter.button.decrement.text'),
     onClick: () => dispatch(counterModule.actions.decrement())
   };
 
   const resetProps: ButtonProps = {
+    tooltip: t('molecules.boxCounter.button.reset.tooltip'),
     children: t('molecules.boxCounter.button.reset.text'),
     onClick: () => dispatch(counterModule.actions.reset())
   };
@@ -60,15 +62,9 @@ const BoxCounter: FunctionComponent<Props> = ({ label }) => {
         <span>{counter}</span>
       </label>
       <Buttons>
-        <Tooltip title={t('molecules.boxCounter.button.increment.tooltip')}>
-          <Button {...incrementProps} />
-        </Tooltip>
-        <Tooltip title={t('molecules.boxCounter.button.decrement.tooltip')}>
-          <Button {...decrementProps} />
-        </Tooltip>
-        <Tooltip title={t('molecules.boxCounter.button.reset.tooltip')}>
-          <Button {...resetProps} />
-        </Tooltip>
+        <Button {...incrementProps} />
+        <Button {...decrementProps} />
+        <Button {...resetProps} />
       </Buttons>
     </Wrapper>
   );

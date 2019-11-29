@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import BaseButton, { BaseButtonProps, StyledBaseButton } from 'components/atoms/BaseButton';
+import Tippy from '@tippy.js/react';
 
 export const StyledButton = styled(StyledBaseButton)`
   background: linear-gradient(rgba(245, 245, 245, 1), rgba(230, 230, 230, 1), rgba(200, 200, 200, 1));
@@ -22,10 +23,20 @@ export const StyledButton = styled(StyledBaseButton)`
   }
 `;
 
-export interface ButtonProps extends BaseButtonProps {}
+export interface ButtonProps extends BaseButtonProps {
+  tooltip?: string;
+}
 
 export default class Button extends BaseButton<ButtonProps> {
   render() {
-    return <StyledButton type="button" {...this.props} />;
+    if (this.props.tooltip) {
+      return (
+        <Tippy content={this.props.tooltip}>
+          <StyledButton type="button" {...this.props} />
+        </Tippy>
+      );
+    } else {
+      return <StyledButton type="button" {...this.props} />;
+    }
   }
 }
