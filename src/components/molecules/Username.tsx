@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import TextBox, { Props as BaseProps } from 'components/atoms/TextBox';
+import TextBox, { TextBoxProps } from 'components/atoms/TextBox';
 
 export const StyledUsername = styled.label`
   display: inline-block;
@@ -32,7 +32,7 @@ export const StyledUsername = styled.label`
   }
 `;
 
-interface Props extends BaseProps {
+interface Props extends TextBoxProps {
   label: string;
 }
 

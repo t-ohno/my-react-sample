@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import { Props as BaseProps, BaseStyledButton } from './Button';
+import { BaseButtonProps, StyledBaseButton } from './BaseButton';
 
-export const StyledLogoutButton = styled(BaseStyledButton).attrs({
+export const StyledLogoutButton = styled(StyledBaseButton).attrs({
   type: 'button'
 })`
   padding: 0;
@@ -16,7 +16,7 @@ export const StyledLogoutButton = styled(BaseStyledButton).attrs({
   }
 `;
 
-interface Props extends BaseProps {}
+interface Props extends BaseButtonProps {}
 
 const LogoutButton: FunctionComponent<Props> = () => <StyledLogoutButton />;
 

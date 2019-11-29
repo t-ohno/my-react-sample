@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Template from 'components/templates/AuthenticatedTemplate';
-import DatePicker from 'components/molecules/DatePicker';
+import DatePicker from 'components/atoms/DatePicker';
 import Button from 'components/atoms/Button';
 import styled from 'styled-components';
 
@@ -22,7 +22,7 @@ const Page2: FunctionComponent = () => {
     <Template>
       <Title>{t('pages.page2.title')}</Title>
       <DatePicker dateFormat={t('pages.page2.datePicker.dateFormat')} selected={selectedDate} onChange={handleChange} />
-      <Button text={t('pages.page2.buttonName')} />
+      <Button>{t('pages.page2.buttonName')}</Button>
     </Template>
   );
 };

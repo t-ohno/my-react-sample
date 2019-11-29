@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import languageModule from 'modules/languageModule';
+import Dropdown from 'components/atoms/Dropdown';
 
 const supportLanguages = [
   { value: 'en', labelKey: 'lang.en' },
@@ -17,7 +18,7 @@ const ChangeLanguage: FunctionComponent = () => {
   const setLang = (newValue: string) => dispatch(languageModule.actions.lang(newValue));
 
   return (
-    <select
+    <Dropdown
       defaultValue={lang}
       onChange={e => {
         setLang(e.target.value);
@@ -29,7 +30,7 @@ const ChangeLanguage: FunctionComponent = () => {
           {t(d.labelKey)}
         </option>
       ))}
-    </select>
+    </Dropdown>
   );
 };
 

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import TextBox, { Props as BaseProps } from 'components/atoms/TextBox';
+import TextBox, { TextBoxProps } from 'components/atoms/TextBox';
 
 const StyledLable = styled.label`
   display: inline-block;
@@ -32,11 +32,11 @@ const StyledLable = styled.label`
   }
 `;
 
-interface Props extends BaseProps {
+interface PasswordProps extends TextBoxProps {
   label: string;
 }
 
-const Password: FunctionComponent<Props> = ({ label }) => (
+const Password: FunctionComponent<PasswordProps> = ({ label }) => (
   <StyledLable>
     <span>{label}</span>
     <TextBox type="password" name="password" required />

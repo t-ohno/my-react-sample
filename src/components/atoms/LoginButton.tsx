@@ -1,10 +1,8 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import { Props as BaseProps, BaseStyledButton } from './Button';
+import BaseButton, { BaseButtonProps, StyledBaseButton } from 'components/atoms/BaseButton';
 
-export const StyledLoginButton = styled(BaseStyledButton).attrs({
-  type: 'submit'
-})`
+export const StyledLoginButton = styled(StyledBaseButton)`
   padding: 0;
   border: none;
   background: transparent url('/assets/images/buttons/loginbutton_up.png') center center no-repeat;
@@ -16,8 +14,12 @@ export const StyledLoginButton = styled(BaseStyledButton).attrs({
   }
 `;
 
-interface Props extends BaseProps {}
+interface LoginButtonProps extends BaseButtonProps {
+  type: 'submit';
+}
 
-const LoginButton: FunctionComponent<Props> = () => <StyledLoginButton />;
-
-export default LoginButton;
+export default class LoginButton extends BaseButton<LoginButtonProps> {
+  render() {
+    return <StyledLoginButton {...this.props} />;
+  }
+}

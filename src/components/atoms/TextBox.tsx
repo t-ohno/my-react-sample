@@ -1,21 +1,18 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import BaseTextBox, { BaseTextBoxProps, StyledBaseTextBox } from 'components/atoms/BaseTextBox';
 
-export const StyledTextBox = styled.input`
+export const StyledTextBox = styled(StyledBaseTextBox)`
   position: relative;
   min-width: 200px;
   min-height: 30px;
   font-size: 1em;
 `;
 
-export interface Props {
-  type?: string;
-  name?: string;
-  required?: boolean;
+export interface TextBoxProps extends BaseTextBoxProps {}
+
+export default class TextBox extends BaseTextBox<TextBoxProps> {
+  render() {
+    return <StyledTextBox {...this.props} />;
+  }
 }
-
-const TextBox: FunctionComponent<Props> = ({ type = 'text', name, required }) => (
-  <StyledTextBox type={type} name={name} aria-required={required} />
-);
-
-export default TextBox;

@@ -14,7 +14,7 @@ export const Page3: FunctionComponent = () => {
   return (
     <Template>
       <Title>{t('pages.page3.title')}</Title>
-      <Button text={t('pages.page3.buttonName')} />
+      <Button>{t('pages.page3.buttonName')}</Button>
     </Template>
   );
 };

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import counterModule from 'modules/counterModule';
-import Button from 'components/atoms/Button';
+import Button, { ButtonProps } from 'components/atoms/Button';
 import { Tooltip } from 'react-tippy';
 
 const Wrapper = styled.div`
@@ -38,9 +38,20 @@ const BoxCounter: FunctionComponent<Props> = ({ label }) => {
   const dispatch = useDispatch();
   const counter = useSelector<any, any>(state => state.counter);
 
-  const increment = () => dispatch(counterModule.actions.increment());
-  const decrement = () => dispatch(counterModule.actions.decrement());
-  const reset = () => dispatch(counterModule.actions.reset());
+  const incrementProps: ButtonProps = {
+    children: t('molecules.boxCounter.button.increment.text'),
+    onClick: () => dispatch(counterModule.actions.increment())
+  };
+
+  const decrementProps: ButtonProps = {
+    children: t('molecules.boxCounter.button.decrement.text'),
+    onClick: () => dispatch(counterModule.actions.decrement())
+  };
+
+  const resetProps: ButtonProps = {
+    children: t('molecules.boxCounter.button.reset.text'),
+    onClick: () => dispatch(counterModule.actions.reset())
+  };
 
   return (
     <Wrapper>
@@ -50,13 +61,13 @@ const BoxCounter: FunctionComponent<Props> = ({ label }) => {
       </label>
       <Buttons>
         <Tooltip title={t('molecules.boxCounter.button.increment.tooltip')}>
-          <Button text={t('molecules.boxCounter.button.increment.text')} onClick={increment} />
+          <Button {...incrementProps} />
         </Tooltip>
         <Tooltip title={t('molecules.boxCounter.button.decrement.tooltip')}>
-          <Button text={t('molecules.boxCounter.button.decrement.text')} onClick={decrement} />
+          <Button {...decrementProps} />
         </Tooltip>
         <Tooltip title={t('molecules.boxCounter.button.reset.tooltip')}>
-          <Button text={t('molecules.boxCounter.button.reset.text')} onClick={reset} />
+          <Button {...resetProps} />
         </Tooltip>
       </Buttons>
     </Wrapper>
