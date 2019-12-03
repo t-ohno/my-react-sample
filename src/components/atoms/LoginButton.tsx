@@ -14,9 +14,7 @@ export const StyledLoginButton = styled(StyledBaseButton)`
   }
 `;
 
-interface LoginButtonProps extends BaseButtonProps {
-  type: 'submit';
-}
+export interface LoginButtonProps extends BaseButtonProps {}
 
 export default class LoginButton extends BaseButton<LoginButtonProps> {
   render() {

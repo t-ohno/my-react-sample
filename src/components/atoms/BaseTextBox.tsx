@@ -1,7 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const StyledBaseTextBox = styled.input``;
+export const StyledBaseTextBox = styled.input`
+  &[aria-disabled='true'],
+  &:disabled {
+    opacity: 0.45;
+  }
+`;
 
 export interface BaseTextBoxProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 

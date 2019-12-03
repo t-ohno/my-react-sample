@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import languageModule from 'modules/languageModule';
 import Dropdown from 'components/atoms/Dropdown';
+import DropdownItem from 'components/atoms/DropdownItem';
 
 const supportLanguages = [
   { value: 'en', labelKey: 'lang.en' },
@@ -26,9 +27,9 @@ const ChangeLanguage: FunctionComponent = () => {
       }}
     >
       {supportLanguages.map((d, i) => (
-        <option key={i} value={d.value}>
+        <DropdownItem key={i} value={d.value}>
           {t(d.labelKey)}
-        </option>
+        </DropdownItem>
       ))}
     </Dropdown>
   );

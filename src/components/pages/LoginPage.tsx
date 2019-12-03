@@ -32,7 +32,7 @@ const LoginPage: FunctionComponent = () => {
       <Logo src="/assets/images/logo.svg" alt="logo" />
       <Username label={t('pages.loginPage.username')} />
       <Password label={t('pages.loginPage.password')} />
-      <LoginButton onClick={() => (window.location.pathname = '/Page1')} />
+      <LoginButton type="submit" onClick={() => (window.location.pathname = '/Page1')} />
     </Wrapper>
   );
 };

@@ -5,7 +5,7 @@ import Logo from 'components/atoms/Logo';
 import Menu from 'components/molecules/Menu';
 import ChangeLanguage from 'components/molecules/ChangeLanguage';
 import LoginUserName from 'components/atoms/LoginUserName';
-import LogoutButton from 'components/atoms/LogoutButton';
+import LogoutButton, { LogoutButtonProps } from 'components/atoms/LogoutButton';
 
 const StyledHeader = styled.header`
   flex-direction: row;
@@ -49,11 +49,11 @@ const HeaderRight = styled.div`
   }
 `;
 
-interface Props {
-  logoutClick: () => void;
+export interface HeaderProps {
+  logoutButton: LogoutButtonProps;
 }
 
-const Header: FunctionComponent<Props> = ({ logoutClick }) => {
+const Header: FunctionComponent<HeaderProps> = (props: HeaderProps) => {
   const [t] = useTranslation();
 
   return (
@@ -65,7 +65,7 @@ const Header: FunctionComponent<Props> = ({ logoutClick }) => {
         </HeaderLeft>
         <HeaderRight>
           <LoginUserName name={t('organisms.header.loginUserName', { name: 'TestUser' })} />
-          <LogoutButton onClick={logoutClick} />
+          <LogoutButton {...props.logoutButton} />
         </HeaderRight>
       </HeaderRow>
       <Menu />

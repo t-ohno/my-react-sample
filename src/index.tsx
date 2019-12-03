@@ -7,8 +7,11 @@ import App from 'App';
 import { Provider } from 'react-redux';
 import 'i18n';
 import setupStore from 'store';
+import Modal from 'react-modal';
 
 const store = setupStore();
+
+Modal.setAppElement('#root');
 
 ReactDOM.render(
   <Provider store={store}>

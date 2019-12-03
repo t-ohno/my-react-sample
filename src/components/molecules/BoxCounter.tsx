@@ -38,19 +38,19 @@ const BoxCounter: FunctionComponent<Props> = ({ label }) => {
   const counter = useSelector<any, any>(state => state.counter);
 
   const incrementProps: ButtonProps = {
-    tooltip: t('molecules.boxCounter.button.increment.tooltip'),
+    tooltipContent: `${t('molecules.boxCounter.button.increment.tooltip')}`,
     children: t('molecules.boxCounter.button.increment.text'),
     onClick: () => dispatch(counterModule.actions.increment())
   };
 
   const decrementProps: ButtonProps = {
-    tooltip: t('molecules.boxCounter.button.decrement.tooltip'),
+    tooltipContent: `${t('molecules.boxCounter.button.decrement.tooltip')}`,
     children: t('molecules.boxCounter.button.decrement.text'),
     onClick: () => dispatch(counterModule.actions.decrement())
   };
 
   const resetProps: ButtonProps = {
-    tooltip: t('molecules.boxCounter.button.reset.tooltip'),
+    tooltipContent: `${t('molecules.boxCounter.button.reset.tooltip')}`,
     children: t('molecules.boxCounter.button.reset.text'),
     onClick: () => dispatch(counterModule.actions.reset())
   };

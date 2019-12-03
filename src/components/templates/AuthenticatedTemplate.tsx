@@ -1,7 +1,8 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import BaseHeader from 'components/organisms/Header';
 import BaseFooter from 'components/organisms/Footer';
+import { LogoutButtonProps } from 'components/atoms/LogoutButton';
 
 const Wrapper = styled.section`
   display: grid;
@@ -39,14 +40,30 @@ interface Props {
   children: React.ReactNode;
 }
 
-const AuthenticatedTemplate: FunctionComponent<Props> = props => {
-  return (
-    <Wrapper>
-      <Header logoutClick={() => (window.location.pathname = '/Page2')} />
-      <Main>{props.children}</Main>
-      <Footer />
-    </Wrapper>
-  );
+type State = {
+  isVisible: boolean;
 };
 
-export default AuthenticatedTemplate;
+export default class AuthenticatedTemplate extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      isVisible: true
+    };
+  }
+
+  render() {
+    const logoutButton: LogoutButtonProps = {
+      onClick: () => (window.location.pathname = '/Page2')
+    };
+
+    return (
+      <Wrapper>
+        <Header logoutButton={logoutButton} />
+        <Main>{this.props.children}</Main>
+        <Footer />
+      </Wrapper>
+    );
+  }
+}
