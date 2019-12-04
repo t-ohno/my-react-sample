@@ -60,7 +60,19 @@
     },
     "page3": {
       "title": "Page3",
-      "buttonName": "Show modal"
+      "buttonName": "Show modal",
+      "datePicker": {
+        "dateFormat": "MM-dd-yyyy",
+        "todayButton": "today"
+      },
+      "timePicker": {
+        "dateFormat": "h:mm aa",
+        "timeFormat": "h:mm aa",
+        "timeCaption": "Time"
+      },
+      "modal": {
+        "title": "Modal Test"
+      }
     }
   }
 }

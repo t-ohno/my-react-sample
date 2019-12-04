@@ -60,7 +60,19 @@
     },
     "page3": {
       "title": "ページ３",
-      "buttonName": "モーダル画面を表示"
+      "buttonName": "モーダル画面を表示",
+      "datePicker": {
+        "dateFormat": "yyyy-MM-dd",
+        "todayButton": "今日"
+      },
+      "timePicker": {
+        "dateFormat": "HH:mm",
+        "timeFormat": "HH:mm",
+        "timeCaption": "時刻"
+      },
+      "modal": {
+        "title": "モーダルテスト"
+      }
     }
   }
 }

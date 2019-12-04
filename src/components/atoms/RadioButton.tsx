@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import BaseCheckBox, { BaseCheckBoxProps, StyledBaseCheckBox } from 'components/atoms/BaseCheckBox';
+import BaseRadioButton, { BaseRadioButtonProps, StyledBaseRadioButton } from 'components/atoms/BaseRadioButton';
 
 const SyledLabel = styled.label`
   color: black;
@@ -19,22 +19,22 @@ const SyledLabel = styled.label`
   }
 `;
 
-export const StyledCheckBox = styled(StyledBaseCheckBox)``;
+export const StyledRadioButton = styled(StyledBaseRadioButton)``;
 
-export interface CheckBoxProps extends BaseCheckBoxProps {
+export interface RadioButtonProps extends BaseRadioButtonProps {
   label?: string;
 }
 
-export default class CheckBox extends BaseCheckBox<CheckBoxProps> {
+export default class RadioButton extends BaseRadioButton<RadioButtonProps> {
   render() {
     if (this.props.label) {
       return (
         <SyledLabel aria-disabled={this.props.disabled}>
-          <BaseCheckBox {...this.props} />
+          <BaseRadioButton {...this.props} />
           <span>{this.props.label}</span>
         </SyledLabel>
       );
     }
-    return <BaseCheckBox {...this.props} />;
+    return <BaseRadioButton {...this.props} />;
   }
 }

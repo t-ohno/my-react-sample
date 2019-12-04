@@ -4,6 +4,7 @@ import TextBox from 'components/atoms/TextBox';
 import Button from 'components/atoms/Button';
 
 interface Props {
+  title: string;
   isOpen: boolean;
   textValue?: string;
   onAfterOpen?: () => void;
@@ -25,12 +26,6 @@ export default class ChildModal extends React.Component<Props, State> {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentWillReceiveProps(nextProps: Props) {
-    if (this.props.textValue !== nextProps.textValue) {
-      this.setState({ textValue: nextProps.textValue });
-    }
-  }
-
   handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     this.setState({ [event.target.name]: event.target.value });
   }
@@ -38,7 +33,7 @@ export default class ChildModal extends React.Component<Props, State> {
   render() {
     return (
       <ModalTemplate
-        title="モーダルタイトル"
+        title={this.props.title}
         isOpen={this.props.isOpen}
         onAfterOpen={this.props.onAfterOpen}
         onRequestClose={this.props.onRequestClose}

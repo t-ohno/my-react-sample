@@ -2,8 +2,8 @@ import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { StyledImg as BaseStyledImg } from 'components/atoms/Logo';
-import Username from 'components/molecules/Username';
-import Password from 'components/molecules/Password';
+import LoginUsername from 'components/molecules/LoginUsername';
+import LoginPassword from 'components/molecules/LoginPassword';
 import { StyledLoginButton as BaseStyledLoginButton } from 'components/atoms/LoginButton';
 
 const Wrapper = styled.section`
@@ -30,8 +30,8 @@ const LoginPage: FunctionComponent = () => {
   return (
     <Wrapper>
       <Logo src="/assets/images/logo.svg" alt="logo" />
-      <Username label={t('pages.loginPage.username')} />
-      <Password label={t('pages.loginPage.password')} />
+      <LoginUsername label={t('pages.loginPage.username')} />
+      <LoginPassword label={t('pages.loginPage.password')} />
       <LoginButton type="submit" onClick={() => (window.location.pathname = '/Page1')} />
     </Wrapper>
   );

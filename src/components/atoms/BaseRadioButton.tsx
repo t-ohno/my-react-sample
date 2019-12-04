@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import BaseInput, { BaseInputProps, StyledBaseInput } from 'components/atoms/BaseInput';
 
-export const StyledBaseCheckBox = styled(StyledBaseInput)`
+export const StyledBaseRadioButton = styled(StyledBaseInput)`
   &:hover {
     cursor: pointer;
   }
@@ -15,14 +15,14 @@ export const StyledBaseCheckBox = styled(StyledBaseInput)`
   }
 `;
 
-export interface BaseCheckBoxProps extends BaseInputProps {}
+export interface BaseRadioButtonProps extends BaseInputProps {}
 
-export default abstract class BaseCheckBox<T extends BaseCheckBoxProps> extends BaseInput<T> {
+export default abstract class BaseRadioButton<T extends BaseRadioButtonProps> extends BaseInput<T> {
   static defaultProps = {
-    type: 'checkbox'
+    type: 'radio'
   };
 
   render() {
-    return <StyledBaseCheckBox {...this.props} />;
+    return <StyledBaseRadioButton {...this.props} />;
   }
 }

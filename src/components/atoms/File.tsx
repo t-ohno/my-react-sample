@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import BaseCheckBox, { BaseCheckBoxProps, StyledBaseCheckBox } from 'components/atoms/BaseCheckBox';
+import BaseFile, { BaseFileProps, StyledBaseFile } from 'components/atoms/BaseFile';
 
 const SyledLabel = styled.label`
   color: black;
@@ -17,24 +17,28 @@ const SyledLabel = styled.label`
       cursor: default;
     }
   }
+
+  span {
+    padding-right: 10px;
+  }
 `;
 
-export const StyledCheckBox = styled(StyledBaseCheckBox)``;
+export const StyledFile = styled(StyledBaseFile)``;
 
-export interface CheckBoxProps extends BaseCheckBoxProps {
+export interface FileProps extends BaseFileProps {
   label?: string;
 }
 
-export default class CheckBox extends BaseCheckBox<CheckBoxProps> {
+export default class File extends BaseFile<FileProps> {
   render() {
     if (this.props.label) {
       return (
         <SyledLabel aria-disabled={this.props.disabled}>
-          <BaseCheckBox {...this.props} />
           <span>{this.props.label}</span>
+          <StyledFile {...this.props} />
         </SyledLabel>
       );
     }
-    return <BaseCheckBox {...this.props} />;
+    return <StyledFile {...this.props} />;
   }
 }

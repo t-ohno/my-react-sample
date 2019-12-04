@@ -40,8 +40,8 @@ const StyledHeader = styled.header`
     &::before {
       content: '';
       position: absolute;
-      top: 4px;
-      bottom: 5px;
+      top: 3px;
+      bottom: 2px;
       left: 10px;
       background: white;
       width: 2px;

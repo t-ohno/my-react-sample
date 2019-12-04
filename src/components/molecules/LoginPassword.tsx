@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
-import TextBox, { TextBoxProps } from 'components/atoms/TextBox';
+import Password, { PasswordProps } from 'components/atoms/Password';
 
-export const StyledUsername = styled.label`
+const StyledLable = styled.label`
   display: inline-block;
   height: 30px;
 
@@ -20,7 +20,7 @@ export const StyledUsername = styled.label`
         top: 0;
         left: 0;
         content: '';
-        background: transparent url('/assets/images/icons/userIdIcon.png') center left no-repeat;
+        background: transparent url('/assets/images/icons/passwordIcon.png') center left no-repeat;
         width: 30px;
         height: 30px;
       }
@@ -32,16 +32,16 @@ export const StyledUsername = styled.label`
   }
 `;
 
-interface Props extends TextBoxProps {
+interface Props extends PasswordProps {
   label: string;
 }
 
-const Username: FunctionComponent<Props> = ({ label }) => (
-  <StyledUsername>
+const LoginPassword: FunctionComponent<Props> = ({ label }) => (
+  <StyledLable>
     <span>{label}</span>
-    <TextBox name="username" required />
+    <Password name="password" required />
     <span>*</span>
-  </StyledUsername>
+  </StyledLable>
 );
 
-export default Username;
+export default LoginPassword;

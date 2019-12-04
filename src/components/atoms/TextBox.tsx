@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import BaseTextBox, { BaseTextBoxProps, StyledBaseTextBox } from 'components/atoms/BaseTextBox';
 
 export const StyledTextBox = styled(StyledBaseTextBox)`
-  position: relative;
   min-width: 200px;
   min-height: 30px;
   font-size: 1em;
