@@ -1,9 +1,11 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import languageModule from 'modules/languageModule';
 import Dropdown from 'components/atoms/Dropdown';
 import DropdownItem from 'components/atoms/DropdownItem';
+import { setLanguage } from 'app/actions';
+import { getLanguage } from 'app/selectors';
+import { Language } from 'app/types';
 
 const supportLanguages = [
   { value: 'en', labelKey: 'lang.en' },
@@ -11,21 +13,20 @@ const supportLanguages = [
 ];
 
 const ChangeLanguage: FunctionComponent = () => {
+  const [t] = useTranslation();
+
   const dispatch = useDispatch();
-  const lang = useSelector<any, any>(state => state.language);
+  const language = useSelector(getLanguage);
 
-  const [t, i18n] = useTranslation();
-
-  const setLang = (newValue: string) => dispatch(languageModule.actions.lang(newValue));
+  const handleLanguageChange = useCallback(
+    (e: React.ChangeEvent<HTMLSelectElement>) => {
+      dispatch(setLanguage(e.currentTarget.value as Language));
+    },
+    [dispatch]
+  );
 
   return (
-    <Dropdown
-      defaultValue={lang}
-      onChange={e => {
-        setLang(e.target.value);
-        i18n.changeLanguage(e.target.value);
-      }}
-    >
+    <Dropdown defaultValue={language} onChange={handleLanguageChange}>
       {supportLanguages.map((d, i) => (
         <DropdownItem key={i} value={d.value}>
           {t(d.labelKey)}

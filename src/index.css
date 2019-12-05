@@ -23,6 +23,7 @@ code {
 }
 
 #root {
+  position: relative;
   background: transparent url('/assets/images/backgroundBase.png') top left repeat;
   padding: 16px;
   height: 100%;

@@ -36,26 +36,14 @@ const Footer = styled(BaseFooter)`
   grid-area: footer;
 `;
 
-interface Props {
-  children: React.ReactNode;
-}
+interface Props {}
 
-type State = {
-  isVisible: boolean;
-};
+type State = {};
 
 export default class AuthenticatedTemplate extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-
-    this.state = {
-      isVisible: true
-    };
-  }
-
   render() {
     const logoutButton: LogoutButtonProps = {
-      onClick: () => (window.location.pathname = '/Page2')
+      onClick: () => (window.location.pathname = '/login')
     };
 
     return (

@@ -56,7 +56,7 @@
       "datePicker": {
         "dateFormat": "MM-dd-yyyy"
       },
-      "buttonName": "button"
+      "showMessageBar": "show message"
     },
     "page3": {
       "title": "Page3",

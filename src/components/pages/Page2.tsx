@@ -1,30 +1,29 @@
-import React, { FunctionComponent, useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { BasePageProps } from 'app/types';
 import Template from 'components/templates/AuthenticatedTemplate';
-import DatePicker from 'components/atoms/DatePicker';
+import TextBox from 'components/atoms/TextBox';
 import Button from 'components/atoms/Button';
-import CheckBox from 'components/atoms/CheckBox';
 import styled from 'styled-components';
 
 const Title = styled.h1`
   color: rgba(0, 0, 0, 1);
 `;
 
-const Page2: FunctionComponent = () => {
-  const [t] = useTranslation();
+interface Props extends BasePageProps {}
 
-  const initialDate = new Date();
-  const [selectedDate, setSelectedDate] = useState(initialDate);
-  const handleChange = (date: Date) => {
-    setSelectedDate(date);
-  };
+const Page2: React.FunctionComponent<Props> = (props: Props) => {
+  const [messageBarValue, setMessageBarValue] = React.useState(props.messageBarValue);
+  const [t] = useTranslation();
 
   return (
     <Template>
       <Title>{t('pages.page2.title')}</Title>
-      <CheckBox label="チェックボックス" />
-      <DatePicker dateFormat={t('pages.page2.datePicker.dateFormat')} selected={selectedDate} onChange={handleChange} />
-      <Button>{t('pages.page2.buttonName')}</Button>
+      <TextBox
+        value={messageBarValue}
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) => setMessageBarValue(event.target.value)}
+      />
+      <Button onClick={props.showMessageBar}>{t('pages.page2.showMessageBar')}</Button>
     </Template>
   );
 };

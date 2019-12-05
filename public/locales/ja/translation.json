@@ -56,7 +56,7 @@
       "datePicker": {
         "dateFormat": "yyyy-MM-dd"
       },
-      "buttonName": "ボタン"
+      "showMessageBar": "メッセージ表示"
     },
     "page3": {
       "title": "ページ３",

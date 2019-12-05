@@ -1,13 +1,18 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { produce } from 'immer';
+import { Action, AppState } from 'app/types';
+import { LanguageActionTypes } from 'app/actionTypes';
 
-const languageModule = createSlice({
-  name: 'language',
-  initialState: 'en',
-  reducers: {
-    lang: (state, newValue) => {
-      return state !== newValue.payload ? newValue.payload : state;
+const initialState: AppState = {
+  language: 'en'
+};
+
+const languageModule = (state: AppState = initialState, action: Action): AppState =>
+  produce(state, () => {
+    switch (action.type) {
+      case LanguageActionTypes.SET: {
+        return action.payload;
+      }
     }
-  }
-});
+  });
 
 export default languageModule;

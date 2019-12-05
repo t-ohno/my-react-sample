@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import BaseButton, { BaseButtonProps, StyledBaseButton } from 'components/atoms/BaseButton';
 import Tippy from '@tippy.js/react';
-import { TooltipProps } from 'types';
+import { TooltipProps } from 'app/types';
 
 export const StyledButton = styled(StyledBaseButton)`
   background: linear-gradient(rgba(245, 245, 245, 1), rgba(230, 230, 230, 1), rgba(200, 200, 200, 1));

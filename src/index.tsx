@@ -5,17 +5,21 @@ import 'tippy.js/dist/tippy.css';
 import * as serviceWorker from 'serviceWorker';
 import App from 'App';
 import { Provider } from 'react-redux';
-import 'i18n';
-import setupStore from 'store';
+import I18N from 'app/i18n';
+import configureStore from 'app/store';
 import Modal from 'react-modal';
 
-const store = setupStore();
+const store = configureStore({
+  initialState: { language: 'en', counter: 0 }
+});
 
 Modal.setAppElement('#root');
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <I18N>
+      <App />
+    </I18N>
   </Provider>,
   document.getElementById('root')
 );
