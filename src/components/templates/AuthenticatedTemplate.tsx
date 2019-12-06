@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Transition } from 'react-transition-group';
+import { BasePageProps } from 'app/types';
+import MessageBar from 'components/organisms/MessageBar';
 import BaseHeader from 'components/organisms/Header';
 import BaseFooter from 'components/organisms/Footer';
 import { LogoutButtonProps } from 'components/atoms/LogoutButton';
@@ -36,11 +39,24 @@ const Footer = styled(BaseFooter)`
   grid-area: footer;
 `;
 
-interface Props {}
+interface Props extends BasePageProps {
+  showMessageBar: () => void;
+  hideMessageBar: () => void;
+}
 
-type State = {};
+type State = {
+  visibleMessageBar: boolean;
+};
 
 export default class AuthenticatedTemplate extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      visibleMessageBar: props.visibleMessageBar
+    };
+  }
+
   render() {
     const logoutButton: LogoutButtonProps = {
       onClick: () => (window.location.pathname = '/login')
@@ -48,6 +64,13 @@ export default class AuthenticatedTemplate extends React.Component<Props, State>
 
     return (
       <Wrapper>
+        <Transition in={this.props.visibleMessageBar} timeout={1000}>
+          {() =>
+            this.props.visibleMessageBar && (
+              <MessageBar message={this.props.messageBarValue} onClose={this.props.hideMessageBar} />
+            )
+          }
+        </Transition>
         <Header logoutButton={logoutButton} />
         <Main>{this.props.children}</Main>
         <Footer />

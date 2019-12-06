@@ -13,5 +13,7 @@ export interface TooltipProps {
 
 export interface BasePageProps {
   messageBarValue?: string;
-  showMessageBar: () => void;
+  visibleMessageBar: boolean;
 }
+
+export interface BasePageState {}

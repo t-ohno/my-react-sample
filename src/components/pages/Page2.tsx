@@ -10,20 +10,43 @@ const Title = styled.h1`
   color: rgba(0, 0, 0, 1);
 `;
 
+const MessageInput = styled.div`
+  display: flex;
+
+  button {
+    margin-left: 10px;
+  }
+`;
+
 interface Props extends BasePageProps {}
 
-const Page2: React.FunctionComponent<Props> = (props: Props) => {
-  const [messageBarValue, setMessageBarValue] = React.useState(props.messageBarValue);
+const Page2: React.FunctionComponent<Props> = () => {
+  const [message, setMessage] = React.useState('Hello World.');
+  const [visibleMessageBar, setVisibleMessageBar] = React.useState(false);
   const [t] = useTranslation();
 
   return (
-    <Template>
+    <Template
+      visibleMessageBar={visibleMessageBar}
+      messageBarValue={message}
+      showMessageBar={() => {
+        setVisibleMessageBar(true);
+      }}
+      hideMessageBar={() => {
+        setVisibleMessageBar(false);
+      }}
+    >
       <Title>{t('pages.page2.title')}</Title>
-      <TextBox
-        value={messageBarValue}
-        onChange={(event: React.ChangeEvent<HTMLInputElement>) => setMessageBarValue(event.target.value)}
-      />
-      <Button onClick={props.showMessageBar}>{t('pages.page2.showMessageBar')}</Button>
+      <MessageInput>
+        <TextBox value={message} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setMessage(e.target.value)} />
+        <Button
+          onClick={() => {
+            setVisibleMessageBar(true);
+          }}
+        >
+          {t('pages.page2.showMessageBar')}
+        </Button>
+      </MessageInput>
     </Template>
   );
 };

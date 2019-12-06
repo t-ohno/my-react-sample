@@ -4,7 +4,7 @@ import BasePassword, { BasePasswordProps, StyledBasePassword } from 'components/
 
 export const StyledPassword = styled(StyledBasePassword)`
   min-width: 200px;
-  min-height: 30px;
+  min-height: 25px;
   font-size: 1em;
 `;
 

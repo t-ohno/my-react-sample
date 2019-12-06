@@ -6,13 +6,46 @@
   "molecules": {
     "menu": {
       "menu1": {
-        "title": "ページ１"
+        "title": "メニュー１",
+        "subMenu1": {
+          "title": "ページ１"
+        }
       },
       "menu2": {
-        "title": "ページ２"
+        "title": "メニュー２",
+        "subMenu1": {
+          "title": "ページ１"
+        },
+        "subMenu2": {
+          "title": "ページ２"
+        }
       },
       "menu3": {
-        "title": "ページ３"
+        "title": "メニュー３",
+        "subMenu1": {
+          "title": "ページ１"
+        },
+        "subMenu2": {
+          "title": "ページ２"
+        },
+        "subMenu3": {
+          "title": "ページ３"
+        }
+      },
+      "menu4": {
+        "title": "メニュー４",
+        "subMenu1": {
+          "title": "ページ１"
+        },
+        "subMenu2": {
+          "title": "ページ２"
+        },
+        "subMenu3": {
+          "title": "ページ３"
+        },
+        "subMenu4": {
+          "title": "ページ４"
+        }
       }
     },
     "boxCounter": {
@@ -73,6 +106,9 @@
       "modal": {
         "title": "モーダルテスト"
       }
+    },
+    "page4": {
+      "title": "ページ４"
     }
   }
 }

@@ -111,7 +111,7 @@ const Page3: React.FunctionComponent<Props> = () => {
   };
 
   return (
-    <Template>
+    <Template visibleMessageBar={false} showMessageBar={() => {}} hideMessageBar={() => {}}>
       <Title>{t('pages.page3.title')}</Title>
       <TextBox {...textbox} />
       <Password {...password} />

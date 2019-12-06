@@ -6,13 +6,46 @@
   "molecules": {
     "menu": {
       "menu1": {
-        "title": "Page1"
+        "title": "Menu1",
+        "subMenu1": {
+          "title": "Page1"
+        }
       },
       "menu2": {
-        "title": "Page2"
+        "title": "Menu2",
+        "subMenu1": {
+          "title": "Page1"
+        },
+        "subMenu2": {
+          "title": "Page2"
+        }
       },
       "menu3": {
-        "title": "Page3"
+        "title": "Menu3",
+        "subMenu1": {
+          "title": "Page1"
+        },
+        "subMenu2": {
+          "title": "Page2"
+        },
+        "subMenu3": {
+          "title": "Page3"
+        }
+      },
+      "menu4": {
+        "title": "Menu4",
+        "subMenu1": {
+          "title": "Page1"
+        },
+        "subMenu2": {
+          "title": "Page2"
+        },
+        "subMenu3": {
+          "title": "Page3"
+        },
+        "subMenu4": {
+          "title": "Page4"
+        }
       }
     },
     "boxCounter": {
@@ -73,6 +106,9 @@
       "modal": {
         "title": "Modal Test"
       }
+    },
+    "page4": {
+      "title": "Page4"
     }
   }
 }

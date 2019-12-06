@@ -4,12 +4,13 @@ import Password, { PasswordProps } from 'components/atoms/Password';
 
 const StyledLable = styled.label`
   display: inline-block;
-  height: 30px;
+  height: 25px;
 
   span {
     display: inline-block;
     min-width: 120px;
-    line-height: 30px;
+    line-height: 25px;
+    color: rgba(102, 102, 102, 1);
 
     :first-child {
       position: relative;
@@ -21,8 +22,8 @@ const StyledLable = styled.label`
         left: 0;
         content: '';
         background: transparent url('/assets/images/icons/passwordIcon.png') center left no-repeat;
-        width: 30px;
-        height: 30px;
+        width: 25px;
+        height: 25px;
       }
     }
 

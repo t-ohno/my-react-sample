@@ -27,7 +27,7 @@ export default class ChildModal extends React.Component<Props, State> {
   }
 
   handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({ ...this.state, [event.target.name]: event.target.value });
   }
 
   render() {

@@ -4,7 +4,7 @@ import BaseTextBox, { BaseTextBoxProps, StyledBaseTextBox } from 'components/ato
 
 export const StyledTextBox = styled(StyledBaseTextBox)`
   min-width: 200px;
-  min-height: 30px;
+  min-height: 25px;
   font-size: 1em;
 `;
 

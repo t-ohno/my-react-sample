@@ -12,7 +12,7 @@ const Page1: FunctionComponent = () => {
   const [t] = useTranslation();
 
   return (
-    <Template>
+    <Template visibleMessageBar={false} showMessageBar={() => {}} hideMessageBar={() => {}}>
       <Title>{t('pages.page1.title')}</Title>
       <BoxCounter label={t('pages.page1.boxCounter.label')} />
     </Template>

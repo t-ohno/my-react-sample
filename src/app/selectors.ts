@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
-import { AppState, Language } from './types';
+import { AppState } from './types';
 
 export const getLanguage = createSelector(
   (state: AppState) => state,
-  (app): Language => app.language
+  (app: AppState) => app.language
 );
