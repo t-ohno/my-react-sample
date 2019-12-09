@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import BaseRadioButton, { BaseRadioButtonProps, StyledBaseRadioButton } from 'components/atoms/BaseRadioButton';
 
 const SyledLabel = styled.label`
   display: flex;
@@ -22,22 +21,39 @@ const SyledLabel = styled.label`
   }
 `;
 
-export const StyledRadioButton = styled(StyledBaseRadioButton)``;
+export const StyledRadioButton = styled.input`
+  &:hover {
+    cursor: pointer;
+  }
 
-export interface RadioButtonProps extends BaseRadioButtonProps {
+  &[aria-disabled='true'],
+  &:disabled {
+    opacity: 0.45;
+
+    &:hover {
+      cursor: default;
+    }
+  }
+`;
+
+export interface RadioButtonProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
 }
 
-export default class RadioButton extends BaseRadioButton<RadioButtonProps> {
+export default class RadioButton extends React.Component<RadioButtonProps> {
+  static defaultProps = {
+    type: 'radio'
+  };
+
   render() {
     if (this.props.label) {
       return (
         <SyledLabel aria-disabled={this.props.disabled}>
-          <BaseRadioButton {...this.props} />
+          <StyledRadioButton {...this.props} />
           <span>{this.props.label}</span>
         </SyledLabel>
       );
     }
-    return <BaseRadioButton {...this.props} />;
+    return <StyledRadioButton {...this.props} />;
   }
 }

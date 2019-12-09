@@ -1,15 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import BaseDropdown, { BaseDropdownProps, StyledBaseDropdown } from 'components/atoms/BaseDropdown';
 
-const StyledDropdown = styled(StyledBaseDropdown)`
+const StyledDropdown = styled.select`
   position: relative;
   top: 0;
   margin: 0;
+
   padding: 0 24px 0 8px;
   border: 1px solid rgba(151, 151, 151, 1);
   border-radius: 4px;
-  font-size: 14px;
+  min-width: 100px;
+  min-height: 24px;
+  color: rgba(0, 0, 0, 1);
+  text-decoration: none;
+  font-size: 1em;
 
   appearance: none;
   outline: none;
@@ -20,12 +24,22 @@ const StyledDropdown = styled(StyledBaseDropdown)`
   &:hover {
     background: url('assets/images/dropdown/dropdown1.svg') right 8px center no-repeat,
       linear-gradient(rgba(197, 197, 197, 1), rgba(183, 183, 183, 1), rgba(179, 179, 179, 1));
+    cursor: pointer;
+  }
+
+  &[aria-disabled='true'],
+  &:disabled {
+    opacity: 0.45;
+
+    &:hover {
+      cursor: default;
+    }
   }
 `;
 
-interface DropdownProps extends BaseDropdownProps {}
+interface DropdownProps extends React.SelectHTMLAttributes<HTMLSelectElement> {}
 
-export default class Dropdown extends BaseDropdown<DropdownProps> {
+export default class Dropdown extends React.Component<DropdownProps> {
   render() {
     return <StyledDropdown {...this.props} />;
   }

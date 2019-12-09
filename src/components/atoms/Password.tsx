@@ -1,16 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
-import BasePassword, { BasePasswordProps, StyledBasePassword } from 'components/atoms/BasePassword';
 
-export const StyledPassword = styled(StyledBasePassword)`
+export const StyledPassword = styled.input`
   min-width: 200px;
   min-height: 25px;
   font-size: 1em;
+
+  &[aria-disabled='true'],
+  &:disabled {
+    opacity: 0.45;
+  }
 `;
 
-export interface PasswordProps extends BasePasswordProps {}
+export interface PasswordProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-export default class Password extends BasePassword<PasswordProps> {
+export default class Password extends React.Component<PasswordProps> {
+  static defaultProps = {
+    type: 'password'
+  };
+
   render() {
     return <StyledPassword {...this.props} />;
   }

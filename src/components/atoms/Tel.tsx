@@ -1,16 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
-import BaseTel, { BaseTelProps, StyledBaseTel } from 'components/atoms/BaseTel';
 
-export const StyledTel = styled(StyledBaseTel)`
+export const StyledTel = styled.input`
   min-width: 200px;
   min-height: 30px;
   font-size: 1em;
+
+  &[aria-disabled='true'],
+  &:disabled {
+    opacity: 0.45;
+  }
 `;
 
-export interface TelProps extends BaseTelProps {}
+export interface TelProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-export default class Tel extends BaseTel<TelProps> {
+export default class Tel extends React.Component<TelProps> {
   static defaultProps = {
     type: 'tel',
     pattern: '\\d{1,5}-\\d{1,4}-\\d{4,5}',

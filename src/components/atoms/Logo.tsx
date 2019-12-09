@@ -5,13 +5,16 @@ export const StyledImg = styled.img`
   height: 100%;
 `;
 
-interface Props {
+export interface LogoProps {
   src?: string;
   alt?: string;
 }
 
-const Logo: FunctionComponent<Props> = ({ src = '/assets/images/logo.svg', alt = 'Logo' }) => (
-  <StyledImg src={src} alt={alt} />
-);
+StyledImg.defaultProps = {
+  src: '/assets/images/logo.svg',
+  alt: 'Logo'
+};
+
+const Logo: FunctionComponent<LogoProps> = ({ src, alt }) => <StyledImg src={src} alt={alt} />;
 
 export default Logo;

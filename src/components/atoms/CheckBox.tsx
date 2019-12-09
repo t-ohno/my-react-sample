@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import BaseCheckBox, { BaseCheckBoxProps, StyledBaseCheckBox } from 'components/atoms/BaseCheckBox';
 
 const SyledLabel = styled.label`
-  color: black;
+  color: rgba(0, 0, 0, 1);
 
-  &:hover {
+  &:hover,
+  input {
     cursor: pointer;
   }
 
@@ -19,22 +19,37 @@ const SyledLabel = styled.label`
   }
 `;
 
-export const StyledCheckBox = styled(StyledBaseCheckBox)``;
+export const StyledCheckBox = styled.input`
+  &:hover {
+    cursor: pointer;
+  }
 
-export interface CheckBoxProps extends BaseCheckBoxProps {
+  &[aria-disabled='true'],
+  &:disabled {
+    &:hover {
+      cursor: default;
+    }
+  }
+`;
+
+export interface CheckBoxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
 }
 
-export default class CheckBox extends BaseCheckBox<CheckBoxProps> {
+export default class CheckBox extends React.Component<CheckBoxProps> {
+  static defaultProps = {
+    type: 'checkbox'
+  };
+
   render() {
     if (this.props.label) {
       return (
         <SyledLabel aria-disabled={this.props.disabled}>
-          <BaseCheckBox {...this.props} />
+          <StyledCheckBox {...this.props} />
           <span>{this.props.label}</span>
         </SyledLabel>
       );
     }
-    return <BaseCheckBox {...this.props} />;
+    return <StyledCheckBox {...this.props} />;
   }
 }

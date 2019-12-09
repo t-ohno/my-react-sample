@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import BaseFile, { BaseFileProps, StyledBaseFile } from 'components/atoms/BaseFile';
 
 const SyledLabel = styled.label`
-  color: black;
+  color: rgba(0, 0, 0, 1);
 
   &:hover {
     cursor: pointer;
@@ -23,13 +22,30 @@ const SyledLabel = styled.label`
   }
 `;
 
-export const StyledFile = styled(StyledBaseFile)``;
+export const StyledFile = styled.input`
+  &:hover {
+    cursor: pointer;
+  }
 
-export interface FileProps extends BaseFileProps {
+  &[aria-disabled='true'],
+  &:disabled {
+    opacity: 0.45;
+
+    &:hover {
+      cursor: default;
+    }
+  }
+`;
+
+export interface FileProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
 }
 
-export default class File extends BaseFile<FileProps> {
+export default class File extends React.Component<FileProps> {
+  static defaultProps = {
+    type: 'file'
+  };
+
   render() {
     if (this.props.label) {
       return (

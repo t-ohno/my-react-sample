@@ -1,7 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
 import styled from 'styled-components';
-import WindowCloseButton from 'components/atoms/WindowCloseButton';
 
 const customStyles = {
   overlay: {
@@ -47,6 +46,32 @@ const StyledHeader = styled.header`
       width: 2px;
     }
   }
+
+  > button {
+  }
+`;
+
+const CloseButton = styled.button.attrs({
+  type: 'button'
+})`
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  width: 20px;
+  height: 20px;
+  color: rgba(255, 255, 255, 1);
+  font-size: 1em;
+  font-weight: bold;
+
+  &:hover {
+    color: rgba(217, 217, 217, 1);
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: 0;
+  }
 `;
 
 const StyledContent = styled.div`
@@ -74,7 +99,7 @@ export default class ModalTemplate extends React.Component<TemplateProps, Templa
       >
         <StyledHeader>
           <span>{this.props.title}</span>
-          <WindowCloseButton onClick={this.props.onRequestClose} />
+          <CloseButton onClick={this.props.onRequestClose}>X</CloseButton>
         </StyledHeader>
         <StyledContent>{this.props.children}</StyledContent>
       </Modal>

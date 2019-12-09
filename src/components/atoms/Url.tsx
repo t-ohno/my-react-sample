@@ -1,16 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
-import BaseUrl, { BaseUrlProps, StyledBaseUrl } from 'components/atoms/BaseUrl';
 
-export const StyledUrl = styled(StyledBaseUrl)`
+export const StyledUrl = styled.input`
   min-width: 200px;
   min-height: 30px;
   font-size: 1em;
+
+  &[aria-disabled='true'],
+  &:disabled {
+    opacity: 0.45;
+  }
 `;
 
-export interface UrlProps extends BaseUrlProps {}
+export interface UrlProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-export default class Url extends BaseUrl<UrlProps> {
+export default class Url extends React.Component<UrlProps> {
+  static defaultProps = {
+    type: 'url'
+  };
+
   render() {
     return <StyledUrl {...this.props} />;
   }

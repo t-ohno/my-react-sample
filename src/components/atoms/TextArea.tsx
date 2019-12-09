@@ -1,14 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import BaseTextArea, { BaseTextAreaProps, StyledBaseTextArea } from 'components/atoms/BaseTextArea';
 
-export const StyledTextArea = styled(StyledBaseTextArea)`
+export const StyledTextArea = styled.textarea`
   font-size: 1em;
+
+  &[aria-disabled='true'],
+  &:disabled {
+    opacity: 0.45;
+  }
 `;
 
-export interface TextAreaProps extends BaseTextAreaProps {}
+export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
 
-export default class TextArea extends BaseTextArea<TextAreaProps> {
+export default class TextArea extends React.Component<TextAreaProps> {
   render() {
     return <StyledTextArea {...this.props} />;
   }

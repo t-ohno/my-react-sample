@@ -22,10 +22,10 @@ export const StyledSpan = styled.span`
   }
 `;
 
-interface Props {
+export interface LoginUserNameProps {
   name: string;
 }
 
-const LoginUserName: FunctionComponent<Props> = ({ name }) => <StyledSpan>{name}</StyledSpan>;
+const LoginUserName: FunctionComponent<LoginUserNameProps> = ({ name }) => <StyledSpan>{name}</StyledSpan>;
 
 export default LoginUserName;
