@@ -1,8 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import styled, { keyframes } from 'styled-components';
+import { MessageLevel } from 'app/types';
 import Button from 'components/atoms/Button';
 
-const ShowMessageArea = keyframes`
+const showMessageBar = keyframes`
   0% {
     height: 0
   }
@@ -26,35 +28,68 @@ const ShowMessageArea = keyframes`
   }
 `;
 
-const StyledMessageArea = styled.div`
+const StyledMessageBar = styled.div`
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 10px 1px 10px;
   height: 130px;
   background-color: rgba(200, 240, 255, 1);
   z-index: 1;
-  animation: ${ShowMessageArea} 300ms ease-in-out;
+  animation: ${showMessageBar} 300ms ease-in-out;
+`;
 
-  button {
-    display: inline;
-  }
+const MessageArea = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 140px;
+  width: 100%;
+`;
+
+const Icon = styled.div`
+  background-color: white;
+  width: 98px;
+  height: 88px;
+`;
+
+const Message = styled.p`
+  margin-left: 20px;
+`;
+
+const HideButton = styled(Button)`
+  width: 100px;
 `;
 
 interface Props {
+  messageLevel: MessageLevel;
   message?: string;
   onClose: () => void;
 }
 
-type State = {};
+const MessageBar: React.FunctionComponent<Props> = (props: Props) => {
+  const [t] = useTranslation();
 
-export default class MessageBar extends React.Component<Props, State> {
-  render() {
-    return (
-      <StyledMessageArea>
-        <span>{this.props.message}</span>
-        <Button onClick={this.props.onClose}>close</Button>
-      </StyledMessageArea>
-    );
-  }
-}
+  return (
+    <StyledMessageBar>
+      <MessageArea>
+        <Icon>{props.messageLevel}</Icon>
+        <Message>{props.message}</Message>
+      </MessageArea>
+      <HideButton onClick={props.onClose}>{t('organisms.messageBar.hideButton')}</HideButton>
+    </StyledMessageBar>
+  );
+};
+
+MessageBar.defaultProps = {
+  messageLevel: MessageLevel.INFO,
+  message: undefined
+};
+
+export default MessageBar;

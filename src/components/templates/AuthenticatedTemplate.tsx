@@ -25,6 +25,18 @@ const Header = styled(BaseHeader)`
   grid-area: header;
 `;
 
+const ShowMessageBarButton = styled.div`
+  position: absolute;
+  top: 65px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: blue;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+`;
+
 const Main = styled.main`
   grid-area: content;
 
@@ -67,11 +79,16 @@ export default class AuthenticatedTemplate extends React.Component<Props, State>
         <Transition in={this.props.visibleMessageBar} timeout={1000}>
           {() =>
             this.props.visibleMessageBar && (
-              <MessageBar message={this.props.messageBarValue} onClose={this.props.hideMessageBar} />
+              <MessageBar
+                messageLevel={this.props.messageLevel}
+                message={this.props.messageBarValue}
+                onClose={this.props.hideMessageBar}
+              />
             )
           }
         </Transition>
         <Header logoutButton={logoutButton} />
+        {this.props.messageBarValue && <ShowMessageBarButton onClick={this.props.showMessageBar} />}
         <Main>{this.props.children}</Main>
         <Footer />
       </Wrapper>

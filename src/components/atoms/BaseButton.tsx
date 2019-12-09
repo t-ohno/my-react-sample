@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export const StyledBaseButton = styled.button.attrs(props => ({
-  type: props.type ? props.type : 'button'
-}))`
+export const StyledBaseButton = styled.button`
   margin: 0;
   padding: 0 10px;
   min-width: 24px;
@@ -11,7 +9,7 @@ export const StyledBaseButton = styled.button.attrs(props => ({
   font-size: 1em;
   text-align: center;
   text-decoration: none;
-  color: rgba(0, 0, 0, 1);
+  color: rgba(102, 102, 102, 1);
 
   &:hover {
     cursor: pointer;
@@ -27,7 +25,9 @@ export const StyledBaseButton = styled.button.attrs(props => ({
   }
 `;
 
-// const StyledButton = styled(BaseStyledButton).attrs({ type: 'button' })``;
+StyledBaseButton.defaultProps = {
+  type: 'button'
+};
 
 export interface BaseButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 

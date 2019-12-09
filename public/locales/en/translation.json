@@ -71,6 +71,9 @@
     },
     "footer": {
       "copyright": "footer area"
+    },
+    "messageBar": {
+      "hideButton": "hide"
     }
   },
   "pages": {

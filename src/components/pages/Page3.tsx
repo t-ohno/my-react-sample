@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
+import { MessageLevel } from 'app/types';
 import Template from 'components/templates/AuthenticatedTemplate';
 import ChildModal from 'components/pages/ChildModal';
 import Button from 'components/atoms/Button';
@@ -111,7 +112,12 @@ const Page3: React.FunctionComponent<Props> = () => {
   };
 
   return (
-    <Template visibleMessageBar={false} showMessageBar={() => {}} hideMessageBar={() => {}}>
+    <Template
+      messageLevel={MessageLevel.INFO}
+      visibleMessageBar={false}
+      showMessageBar={() => {}}
+      hideMessageBar={() => {}}
+    >
       <Title>{t('pages.page3.title')}</Title>
       <TextBox {...textbox} />
       <Password {...password} />

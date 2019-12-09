@@ -10,7 +10,7 @@ export const StyledBaseInput = styled.input`
 
 export interface BaseInputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-export default abstract class BaseInput<T extends BaseInputProps> extends React.Component<T> {
+export default abstract class BaseInput<P extends BaseInputProps, S = {}, SS = any> extends React.Component<P, S, SS> {
   render() {
     return <StyledBaseInput {...this.props} />;
   }

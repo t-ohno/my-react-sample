@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import BaseButton, { BaseButtonProps, StyledBaseButton } from 'components/atoms/BaseButton';
 
-export const StyledLogoutButton = styled(StyledBaseButton)`
+export const StyledWindowCloseButton = styled(StyledBaseButton)`
   margin: 0;
   padding: 0;
   background: transparent;
@@ -26,6 +26,6 @@ export interface WindowCloseButtonProps extends BaseButtonProps {}
 
 export default class WindowCloseButton extends BaseButton<WindowCloseButtonProps> {
   render() {
-    return <StyledLogoutButton {...this.props}>X</StyledLogoutButton>;
+    return <StyledWindowCloseButton {...this.props}>X</StyledWindowCloseButton>;
   }
 }

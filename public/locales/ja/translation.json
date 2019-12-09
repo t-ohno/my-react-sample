@@ -71,6 +71,9 @@
     },
     "footer": {
       "copyright": "フッター領域"
+    },
+    "messageBar": {
+      "hideButton": "かくす"
     }
   },
   "pages": {

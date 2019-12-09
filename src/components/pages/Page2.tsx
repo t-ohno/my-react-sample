@@ -1,13 +1,19 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { BasePageProps } from 'app/types';
+import styled from 'styled-components';
+import { BasePageProps, MessageLevel } from 'app/types';
 import Template from 'components/templates/AuthenticatedTemplate';
 import TextBox from 'components/atoms/TextBox';
 import Button from 'components/atoms/Button';
-import styled from 'styled-components';
+import RadioButton from 'components/atoms/RadioButton';
 
 const Title = styled.h1`
   color: rgba(0, 0, 0, 1);
+`;
+
+const RadioButtons = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 const MessageInput = styled.div`
@@ -21,14 +27,20 @@ const MessageInput = styled.div`
 interface Props extends BasePageProps {}
 
 const Page2: React.FunctionComponent<Props> = () => {
-  const [message, setMessage] = React.useState('Hello World.');
-  const [visibleMessageBar, setVisibleMessageBar] = React.useState(false);
   const [t] = useTranslation();
+
+  const [messageLevel, setMessageLevel]: any = React.useState(MessageLevel.INFO);
+  const [messageBarValue, setMessageBarValue] = React.useState('');
+  const [visibleMessageBar, setVisibleMessageBar] = React.useState(false);
+
+  const radioChange = (e: React.ChangeEvent<HTMLInputElement>) => setMessageLevel(e.target.value);
+  const textChange = (e: React.ChangeEvent<HTMLInputElement>) => setMessageBarValue(e.target.value);
 
   return (
     <Template
       visibleMessageBar={visibleMessageBar}
-      messageBarValue={message}
+      messageLevel={messageLevel}
+      messageBarValue={messageBarValue}
       showMessageBar={() => {
         setVisibleMessageBar(true);
       }}
@@ -38,7 +50,30 @@ const Page2: React.FunctionComponent<Props> = () => {
     >
       <Title>{t('pages.page2.title')}</Title>
       <MessageInput>
-        <TextBox value={message} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setMessage(e.target.value)} />
+        <RadioButtons>
+          <RadioButton
+            name="messageLevel"
+            value={MessageLevel.INFO}
+            label="INFO"
+            onChange={radioChange}
+            defaultChecked={messageLevel === MessageLevel.INFO}
+          />
+          <RadioButton
+            name="messageLevel"
+            value={MessageLevel.WARN}
+            label="WARN"
+            onChange={radioChange}
+            defaultChecked={messageLevel === MessageLevel.WARN}
+          />
+          <RadioButton
+            name="messageLevel"
+            value={MessageLevel.ERR}
+            label="ERR"
+            onChange={radioChange}
+            defaultChecked={messageLevel === MessageLevel.ERR}
+          />
+        </RadioButtons>
+        <TextBox value={messageBarValue} onChange={textChange} />
         <Button
           onClick={() => {
             setVisibleMessageBar(true);

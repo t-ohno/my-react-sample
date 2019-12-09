@@ -10,7 +10,7 @@ export const StyledTextBox = styled(StyledBaseTextBox)`
 
 export interface TextBoxProps extends BaseTextBoxProps {}
 
-export default class TextBox extends BaseTextBox<TextBoxProps> {
+export default class TextBox<P extends TextBoxProps> extends BaseTextBox<P> {
   render() {
     return <StyledTextBox {...this.props} />;
   }

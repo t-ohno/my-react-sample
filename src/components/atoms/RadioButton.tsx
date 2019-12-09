@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import BaseRadioButton, { BaseRadioButtonProps, StyledBaseRadioButton } from 'components/atoms/BaseRadioButton';
 
 const SyledLabel = styled.label`
+  display: flex;
+  align-items: center;
+  padding-right: 0.5ex;
   color: black;
 
   &:hover {
