@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SyledLabel = styled.label`
+  display: flex;
+  align-items: center;
+  padding-right: 0.5ex;
   color: rgba(0, 0, 0, 1);
 
-  &:hover,
-  input {
+  &:hover {
     cursor: pointer;
   }
 

@@ -11,7 +11,7 @@ const StyledHeader = styled.header`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  color: #fff;
+  color: rgba(255, 255, 255, 1);
 
   padding: 0 5px;
 `;

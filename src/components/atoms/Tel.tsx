@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 export const StyledTel = styled.input`
   min-width: 200px;
-  min-height: 30px;
-  font-size: 1em;
+  min-height: 25px;
+  font-size: 1rem;
 
   &[aria-disabled='true'],
   &:disabled {

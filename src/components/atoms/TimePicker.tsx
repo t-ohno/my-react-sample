@@ -6,8 +6,8 @@ import styled from 'styled-components';
 const StyledTimePicker = styled(ReactDatePicker)`
   padding-left: 5px;
   width: 105px;
-  min-height: 30px;
-  font-size: 1em;
+  min-height: 25px;
+  font-size: 1rem;
 `;
 
 export interface TimePickerProps extends ReactDatePickerProps {}

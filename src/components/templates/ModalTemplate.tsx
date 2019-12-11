@@ -61,7 +61,7 @@ const CloseButton = styled.button.attrs({
   width: 20px;
   height: 20px;
   color: rgba(255, 255, 255, 1);
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: bold;
 
   &:hover {

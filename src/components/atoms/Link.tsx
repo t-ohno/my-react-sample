@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const StyledLink = styled.a`
   cursor: pointer;
-  color: #09d3ac;
+  color: rgba(9, 211, 171, 1);
 `;
 
 interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}

@@ -8,7 +8,7 @@ export const StyledButton = styled.button`
   padding: 0 10px;
   min-width: 24px;
   min-height: 24px;
-  font-size: 1em;
+  font-size: 1rem;
   text-align: center;
   text-decoration: none;
   color: rgba(102, 102, 102, 1);

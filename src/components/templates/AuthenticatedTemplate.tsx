@@ -25,26 +25,32 @@ const Header = styled(BaseHeader)`
   grid-area: header;
 `;
 
-const ShowMessageBarButton = styled.div`
+const ShowMessageBarButton = styled.button`
   position: absolute;
   top: 65px;
   left: 50%;
   transform: translateX(-50%);
   background-color: blue;
   border-radius: 50%;
+  color: rgba(255, 255, 255, 1);
   width: 30px;
   height: 30px;
+  font-size: 1rem;
   cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const Main = styled.main`
+  overflow: auto;
   grid-area: content;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: rgba(255, 255, 255, 1);
 `;
 
 const Footer = styled(BaseFooter)`
@@ -88,7 +94,9 @@ export default class AuthenticatedTemplate extends React.Component<Props, State>
           }
         </Transition>
         <Header logoutButton={logoutButton} />
-        {this.props.messageBarValue && <ShowMessageBarButton onClick={this.props.showMessageBar} />}
+        {this.props.messageBarValue && (
+          <ShowMessageBarButton onClick={this.props.showMessageBar}>i</ShowMessageBarButton>
+        )}
         <Main>{this.props.children}</Main>
         <Footer />
       </Wrapper>

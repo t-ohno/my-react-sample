@@ -10,7 +10,7 @@ const StyledFooter = styled.footer`
   padding: 5px;
 
   p {
-    color: #000;
+    color: rgba(0, 0, 0, 1);
     margin: 0;
   }
 `;

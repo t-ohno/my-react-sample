@@ -7,7 +7,7 @@ export const StyledSpan = styled.span`
   padding-left: 24px;
   height: 38px;
   line-height: 38px;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   color: rgba(0, 0, 0, 1);
 
   &::before {

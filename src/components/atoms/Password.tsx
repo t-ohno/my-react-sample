@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const StyledPassword = styled.input`
   min-width: 200px;
   min-height: 25px;
-  font-size: 1em;
+  font-size: 1rem;
 
   &[aria-disabled='true'],
   &:disabled {

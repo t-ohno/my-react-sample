@@ -13,7 +13,7 @@ const StyledDropdown = styled.select`
   min-height: 24px;
   color: rgba(0, 0, 0, 1);
   text-decoration: none;
-  font-size: 1em;
+  font-size: 1rem;
 
   appearance: none;
   outline: none;

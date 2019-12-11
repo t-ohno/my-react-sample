@@ -5,7 +5,7 @@ const SyledLabel = styled.label`
   display: flex;
   align-items: center;
   padding-right: 0.5ex;
-  color: black;
+  color: rgba(0, 0, 0, 1);
 
   &:hover {
     cursor: pointer;
