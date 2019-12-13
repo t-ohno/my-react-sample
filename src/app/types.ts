@@ -51,3 +51,10 @@ export type Page3State = {
   timepicker: TimePickerProps;
   textarea: TextAreaProps;
 };
+
+export type TodoData = {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+};
