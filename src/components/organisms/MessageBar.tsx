@@ -55,6 +55,7 @@ const MessageArea = styled.div`
 
 const Icon = styled.div`
   background-color: white;
+  border-radius: 5px;
   width: 98px;
   height: 88px;
 `;

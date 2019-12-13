@@ -1,9 +1,9 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import language from 'modules/languageModule';
+import languageModule from 'modules/languageModule';
 import counterModule from 'modules/counterModule';
 
 const rootReducer = combineReducers({
-  language,
+  language: languageModule,
   counter: counterModule.reducer
 });
 

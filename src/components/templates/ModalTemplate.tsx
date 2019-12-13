@@ -7,6 +7,7 @@ const customStyles = {
     backgroundColor: 'rgba(0, 0, 0, 0.7)'
   },
   content: {
+    position: 'absolute',
     color: 'lightsteelblue',
     top: '50%',
     left: '50%',
@@ -22,7 +23,7 @@ const customStyles = {
   }
 };
 
-const StyledHeader = styled.header`
+const ModalHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -45,9 +46,6 @@ const StyledHeader = styled.header`
       background: white;
       width: 2px;
     }
-  }
-
-  > button {
   }
 `;
 
@@ -74,7 +72,7 @@ const CloseButton = styled.button.attrs({
   }
 `;
 
-const StyledContent = styled.div`
+const ModalBody = styled.div`
   margin: 0;
   padding: 10px 5px;
   background: white;
@@ -88,6 +86,12 @@ export interface TemplateProps extends Modal.Props {
 export type TemplateState = {};
 
 export default class ModalTemplate extends React.Component<TemplateProps, TemplateState> {
+  constructor(props: TemplateProps) {
+    super(props);
+
+    this.state = {};
+  }
+
   render() {
     return (
       <Modal
@@ -97,11 +101,11 @@ export default class ModalTemplate extends React.Component<TemplateProps, Templa
         onRequestClose={this.props.onRequestClose}
         contentLabel={this.props.contentLabel}
       >
-        <StyledHeader>
+        <ModalHeader className="handle">
           <span>{this.props.title}</span>
           <CloseButton onClick={this.props.onRequestClose}>X</CloseButton>
-        </StyledHeader>
-        <StyledContent>{this.props.children}</StyledContent>
+        </ModalHeader>
+        <ModalBody>{this.props.children}</ModalBody>
       </Modal>
     );
   }

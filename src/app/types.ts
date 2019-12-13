@@ -9,7 +9,7 @@ import { RadioButtonProps } from 'components/atoms/RadioButton';
 import { FileProps } from 'components/atoms/File';
 import { DatePickerProps } from 'components/atoms/DatePicker';
 import { TimePickerProps } from 'components/atoms/TimePicker';
-import { TextAreaProps } from './../components/atoms/TextArea';
+import { TextAreaProps } from 'components/atoms/TextArea';
 
 export type Language = 'en' | 'ja';
 

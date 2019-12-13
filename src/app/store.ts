@@ -1,6 +1,11 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import { createLogger } from 'redux-logger';
 import rootReducer from 'reducers/rootReducer';
+
+const logger = createLogger({
+  duration: true
+});
 
 export type StoreParams = {
   initialState?: { [key: string]: any };
@@ -13,7 +18,7 @@ const configureStore = ({ initialState, middleware = [] }: StoreParams) => {
   const store = createStore(
     rootReducer,
     initialState,
-    composeEnhancers(applyMiddleware(...[thunk].concat(...middleware)))
+    composeEnhancers(applyMiddleware(...[thunk].concat(...middleware), logger))
   );
 
   return store;
