@@ -215,14 +215,15 @@ const Page3: React.FunctionComponent<Props> = () => {
       </ItemRow>
 
       <Commands>
-        <ChildModal
-          title={t('pages.page3.modal.title')}
-          values={state}
-          isOpen={isOpen}
-          onRequestClose={() => setOpen(false)}
-        />
         <Button onClick={() => setOpen(true)}>{t('pages.page3.buttonName')}</Button>
       </Commands>
+
+      <ChildModal
+        title={t('pages.page3.modal.title')}
+        state={state}
+        isOpen={isOpen}
+        onRequestClose={() => setOpen(false)}
+      />
     </Template>
   );
 };

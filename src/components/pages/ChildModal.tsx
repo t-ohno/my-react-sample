@@ -40,27 +40,16 @@ const Commands = styled.div`
 `;
 
 interface Props extends TemplateProps {
-  title: string;
-  values: Page3State;
+  state: Page3State;
 }
 
-type State = {
-  values: Page3State;
-};
+type State = {};
 
 export default class ChildModal extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
-    this.state = {
-      values: props.values
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    this.setState({ ...this.state, [e.target.name]: e.target.value });
+    this.state = {};
   }
 
   render() {
@@ -70,58 +59,59 @@ export default class ChildModal extends React.Component<Props, State> {
         isOpen={this.props.isOpen}
         onAfterOpen={this.props.onAfterOpen}
         onRequestClose={this.props.onRequestClose}
-        contentLabel="Example"
+        contentLabel="Child Modal Example"
       >
         <form>
           <ItemRow>
             <span>TextBox</span>
-            <TextBox {...this.state.values.textbox} onChange={this.handleChange} />
+            <TextBox {...this.props.state.textbox} />
           </ItemRow>
           <ItemRow>
             <span>Password</span>
-            <Password {...this.state.values.password} onChange={this.handleChange} />
+            <Password {...this.props.state.password} />
           </ItemRow>
           <ItemRow>
             <span>Number</span>
-            <Number {...this.state.values.number} onChange={this.handleChange} />
+            <Number {...this.props.state.number} />
           </ItemRow>
           <ItemRow>
             <span>Email</span>
-            <Email {...this.state.values.email} onChange={this.handleChange} />
+            <Email {...this.props.state.email} />
           </ItemRow>
           <ItemRow>
             <span>Tel</span>
-            <Tel {...this.state.values.tel} />
+            <Tel {...this.props.state.tel} />
           </ItemRow>
           <ItemRow>
             <span>Url</span>
-            <Url {...this.state.values.url} />
+            <Url {...this.props.state.url} />
           </ItemRow>
           <ItemRow>
             <span>File</span>
-            <File {...this.state.values.file} />
+            <File {...this.props.state.file} />
           </ItemRow>
           <ItemRow>
             <span>CheckBox</span>
-            <CheckBox {...this.state.values.checkbox} />
+            <CheckBox {...this.props.state.checkbox} />
           </ItemRow>
           <ItemRow>
             <span>RadioButton</span>
-            <RadioButton {...this.state.values.radiobutton1} />
-            <RadioButton {...this.state.values.radiobutton2} />
+            <RadioButton {...this.props.state.radiobutton1} />
+            <RadioButton {...this.props.state.radiobutton2} />
           </ItemRow>
           <ItemRow>
             <span>DatePicker</span>
-            <DatePicker {...this.state.values.datepicker} />
+            <DatePicker {...this.props.state.datepicker} popperPlacement="top-end" />
           </ItemRow>
           <ItemRow>
             <span>TimePicker</span>
-            <TimePicker {...this.state.values.timepicker} />
+            <TimePicker {...this.props.state.timepicker} />
           </ItemRow>
           <ItemRow>
             <span>TextArea</span>
-            <TextArea {...this.state.values.textarea} />
+            <TextArea {...this.props.state.textarea} />
           </ItemRow>
+
           <Commands>
             <Button type="submit" onClick={this.props.onRequestClose}>
               OK
