@@ -1,6 +1,7 @@
 import React from 'react';
 import { Translation } from 'react-i18next';
 import { Column } from 'react-table';
+import axios from 'axios';
 import styled from 'styled-components';
 import { BasePageProps, MessageLevel, TodoData } from 'app/types';
 import BasePage from './BasePage';
@@ -34,9 +35,10 @@ export default class Page4 extends BasePage<Props, State> {
 
   componentDidMount() {
     const url = 'https://jsonplaceholder.typicode.com/todos';
-    fetch(url, { method: 'GET' })
-      .then(response => response.json())
-      .then(json => this.setState({ data: json }));
+    axios
+      .get(url)
+      .then(response => this.setState({ data: response.data }))
+      .catch(error => console.log(error));
   }
 
   render() {
