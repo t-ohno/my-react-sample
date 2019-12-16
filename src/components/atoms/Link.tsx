@@ -6,12 +6,20 @@ export const StyledLink = styled.a`
   color: rgba(9, 211, 171, 1);
 `;
 
-interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
+interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  disabled?: boolean;
+}
 
 export default class Link extends React.Component<LinkProps> {
-  static defaultProps = {};
+  static defaultProps = {
+    disabled: false
+  };
 
   render() {
-    return <StyledLink {...this.props} rel="noopener noreferrer" />;
+    if (this.props.disabled) {
+      return <span>{this.props.children}</span>;
+    } else {
+      return <StyledLink {...this.props} rel="noopener noreferrer" />;
+    }
   }
 }

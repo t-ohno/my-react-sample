@@ -14,7 +14,7 @@ export const StyledTextBox = styled.input`
 
 export interface TextBoxProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-export default class TextBox<P extends TextBoxProps> extends React.Component<P> {
+export default class TextBox extends React.Component<TextBoxProps> {
   static defaultProps = {
     type: 'text'
   };
