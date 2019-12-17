@@ -5,14 +5,18 @@ import { text, boolean } from '@storybook/addon-knobs';
 import Button from './Button';
 import 'tippy.js/dist/tippy.css';
 
-const stories = storiesOf('Button', module);
+const stories = storiesOf('atoms.Button', module);
 
-stories.add('Basic', () => (
-  <Button
-    disabled={boolean('disabled', false)}
-    tooltipContent={text('tooltipContent', 'ボタンです')}
-    onClick={action('Click!')}
-  >
-    {text('ラベル', 'Click Me')}
-  </Button>
-));
+stories.add(
+  'Basic',
+  () => (
+    <Button
+      disabled={boolean('disabled', false)}
+      tooltipContent={text('tooltipContent', 'ボタンです')}
+      onClick={action('Click!')}
+    >
+      {text('ラベル', 'Click Me')}
+    </Button>
+  ),
+  { notes: 'button' }
+);

@@ -24,12 +24,12 @@ export const StyledButton = styled.button`
 
   &[aria-disabled='true'],
   &:disabled {
-    opacity: 0.45;
+    opacity: 0.5;
 
     &:hover {
       background: linear-gradient(rgba(245, 245, 245, 1), rgba(230, 230, 230, 1), rgba(200, 200, 200, 1));
       box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.4);
-      cursor: default;
+      cursor: not-allowed;
     }
   }
 `;

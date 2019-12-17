@@ -8,7 +8,11 @@ export const StyledUrl = styled.input`
 
   &[aria-disabled='true'],
   &:disabled {
-    opacity: 0.45;
+    opacity: 0.5;
+
+    &:hover {
+      cursor: not-allowed;
+    }
   }
 `;
 

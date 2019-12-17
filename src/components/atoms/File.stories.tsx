@@ -4,8 +4,10 @@ import { action } from '@storybook/addon-actions';
 import { boolean, text } from '@storybook/addon-knobs';
 import File from './File';
 
-const stories = storiesOf('File', module);
+const stories = storiesOf('atoms.File', module);
 
-stories.add('Basic', () => (
-  <File label={text('label', 'ファイル名')} disabled={boolean('disabled', false)} onChange={action('change')} />
-));
+stories.add(
+  'Basic',
+  () => <File label={text('label', 'ファイル名')} disabled={boolean('disabled', false)} onChange={action('change')} />,
+  { notes: 'File' }
+);

@@ -1,31 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
+import ImageButton, { ImageButtonProps, StyledImageButton } from 'components/atoms/ImageButton';
 
-export const StyledLogoutButton = styled.button`
-  padding: 0;
-  border: none;
-  background: transparent url('/assets/images/buttons/logoutbutton_up.png') center center no-repeat;
+export const StyledLogoutButton = styled(StyledImageButton)`
+  background-image: url('/assets/images/buttons/logoutbutton_up.png');
   width: 122px;
   height: 38px;
 
   :hover {
     background-image: url('/assets/images/buttons/logoutbutton_over.png');
-    cursor: pointer;
   }
 
   &[aria-disabled='true'],
   &:disabled {
-    opacity: 0.45;
-
     &:hover {
-      cursor: default;
+      background-image: url('/assets/images/buttons/logoutbutton_up.png');
     }
   }
 `;
 
-export interface LogoutButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export interface LogoutButtonProps extends ImageButtonProps {}
 
-export default class LogoutButton extends React.Component<LogoutButtonProps> {
+export default class LogoutButton extends ImageButton<LogoutButtonProps> {
   static defaultProps = {
     type: 'button'
   };

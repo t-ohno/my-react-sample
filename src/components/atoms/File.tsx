@@ -10,7 +10,7 @@ const SyledLabel = styled.label`
 
   &[aria-disabled='true'],
   &:disabled {
-    opacity: 0.45;
+    opacity: 0.5;
 
     &:hover {
       cursor: default;
@@ -29,10 +29,10 @@ export const StyledFile = styled.input`
 
   &[aria-disabled='true'],
   &:disabled {
-    opacity: 0.45;
+    opacity: 0.5;
 
     &:hover {
-      cursor: default;
+      cursor: not-allowed;
     }
   }
 `;

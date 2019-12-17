@@ -8,15 +8,16 @@ const SyledLabel = styled.label`
   color: rgba(0, 0, 0, 1);
 
   &:hover {
+    color: rgba(42, 115, 204, 1);
     cursor: pointer;
   }
 
   &[aria-disabled='true'],
   &:disabled {
-    opacity: 0.45;
+    opacity: 0.5;
 
     &:hover {
-      cursor: default;
+      cursor: not-allowed;
     }
   }
 `;
@@ -28,7 +29,7 @@ export const StyledRadioButton = styled.input`
 
   &[aria-disabled='true'],
   &:disabled {
-    opacity: 0.45;
+    opacity: 0.5;
 
     &:hover {
       cursor: default;

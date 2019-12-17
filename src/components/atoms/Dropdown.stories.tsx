@@ -36,14 +36,18 @@ const phoneticCodes = [
 
 const items = array('Items', phoneticCodes);
 
-const stories = storiesOf('Dropdown', module);
+const stories = storiesOf('atoms.Dropdown', module);
 
-stories.add('Basic', () => (
-  <Dropdown value={text('value', 'Tango')} disabled={boolean('disabled', false)} onChange={action('change')}>
-    {items.map((d, i) => (
-      <DropdownItem key={i} value={d}>
-        {d}
-      </DropdownItem>
-    ))}
-  </Dropdown>
-));
+stories.add(
+  'Basic',
+  () => (
+    <Dropdown value={text('value', 'Tango')} disabled={boolean('disabled', false)} onChange={action('change')}>
+      {items.map((d, i) => (
+        <DropdownItem key={i} value={d}>
+          {d}
+        </DropdownItem>
+      ))}
+    </Dropdown>
+  ),
+  { notes: 'Dropdown' }
+);

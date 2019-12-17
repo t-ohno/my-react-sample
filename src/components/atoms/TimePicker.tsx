@@ -8,6 +8,27 @@ const StyledTimePicker = styled(ReactDatePicker)`
   width: 105px;
   min-height: 25px;
   font-size: 1rem;
+
+  &[aria-disabled='true'],
+  &:disabled {
+    opacity: 0.5;
+
+    &:hover {
+      cursor: not-allowed;
+    }
+
+    + button {
+      opacity: 0.5;
+
+      &:hover {
+        cursor: not-allowed;
+      }
+
+      &::after {
+        cursor: not-allowed;
+      }
+    }
+  }
 `;
 
 export interface TimePickerProps extends ReactDatePickerProps {}
