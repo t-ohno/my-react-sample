@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Password, { PasswordProps } from 'components/atoms/Password';
 
@@ -37,12 +37,18 @@ interface Props extends PasswordProps {
   label: string;
 }
 
-const LoginPassword: FunctionComponent<Props> = ({ label }) => (
+const LoginPassword: React.FunctionComponent<Props> = (props: Props) => (
   <StyledLable>
-    <span>{label}</span>
-    <Password name="password" required />
-    <span>*</span>
+    <span>{props.label}</span>
+    <Password {...props} />
+    {props.required && <span>*</span>}
   </StyledLable>
 );
+
+LoginPassword.defaultProps = {
+  name: 'password',
+  placeholder: 'password',
+  required: true
+};
 
 export default LoginPassword;

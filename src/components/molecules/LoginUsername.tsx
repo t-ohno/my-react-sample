@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import TextBox, { TextBoxProps } from 'components/atoms/TextBox';
 
@@ -37,12 +37,20 @@ interface Props extends TextBoxProps {
   label: string;
 }
 
-const LoginUsername: FunctionComponent<Props> = ({ label }) => (
-  <StyledUsername>
-    <span>{label}</span>
-    <TextBox name="username" required />
-    <span>*</span>
-  </StyledUsername>
-);
+export default class LoginUsername extends React.Component<Props> {
+  static defaultProps = {
+    name: 'username',
+    placeholder: 'username',
+    required: true
+  };
 
-export default LoginUsername;
+  render() {
+    return (
+      <StyledUsername>
+        <span>{this.props.label}</span>
+        <TextBox {...this.props} />
+        {this.props.required && <span>*</span>}
+      </StyledUsername>
+    );
+  }
+}

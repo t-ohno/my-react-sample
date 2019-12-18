@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from 'react';
-import { useTranslation } from 'react-i18next';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
+import { MenuItem } from 'app/types';
 
 const ShowSubMenu = keyframes`
     from{
@@ -66,6 +66,7 @@ const StyledMenu = styled.nav`
           a {
             position: relative;
             display: inline-block;
+            box-sizing: border-box;
             padding: 0 5px 0 25px;
             background: rgba(161, 211, 247, 1);
             border-radius: 5px;
@@ -123,70 +124,33 @@ const StyledMenu = styled.nav`
   }
 `;
 
-const Menu: FunctionComponent = () => {
-  const [t] = useTranslation();
+interface Props {
+  menuItems: MenuItem[];
+}
 
+const Menu: React.FunctionComponent<Props> = ({ menuItems }) => {
   return (
     <StyledMenu>
       <ul>
-        <li>
-          <p>
-            <span>{t('molecules.menu.menu1.title')}</span>
-          </p>
-          <ul>
+        {menuItems.map(item => {
+          return (
             <li>
-              <Link to="/Page1">{t('molecules.menu.menu1.subMenu1.title')}</Link>
+              <p>
+                <span>{item.label}</span>
+              </p>
+              <ul>
+                {item.children &&
+                  item.children.map(child => {
+                    return (
+                      <li>
+                        <Link to={child.to}>{child.label}</Link>
+                      </li>
+                    );
+                  })}
+              </ul>
             </li>
-          </ul>
-        </li>
-        <li>
-          <p>
-            <span>{t('molecules.menu.menu2.title')}</span>
-          </p>
-          <ul>
-            <li>
-              <Link to="/Page1">{t('molecules.menu.menu2.subMenu1.title')}</Link>
-            </li>
-            <li>
-              <Link to="/Page2">{t('molecules.menu.menu2.subMenu2.title')}</Link>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <p>
-            <span>{t('molecules.menu.menu3.title')}</span>
-          </p>
-          <ul>
-            <li>
-              <Link to="/Page1">{t('molecules.menu.menu3.subMenu1.title')}</Link>
-            </li>
-            <li>
-              <Link to="/Page2">{t('molecules.menu.menu3.subMenu2.title')}</Link>
-            </li>
-            <li>
-              <Link to="/Page3">{t('molecules.menu.menu3.subMenu3.title')}</Link>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <p>
-            <span>{t('molecules.menu.menu4.title')}</span>
-          </p>
-          <ul>
-            <li>
-              <Link to="/Page1">{t('molecules.menu.menu4.subMenu1.title')}</Link>
-            </li>
-            <li>
-              <Link to="/Page2">{t('molecules.menu.menu4.subMenu2.title')}</Link>
-            </li>
-            <li>
-              <Link to="/Page3">{t('molecules.menu.menu4.subMenu3.title')}</Link>
-            </li>
-            <li>
-              <Link to="/Page4">{t('molecules.menu.menu4.subMenu4.title')}</Link>
-            </li>
-          </ul>
-        </li>
+          );
+        })}
       </ul>
     </StyledMenu>
   );

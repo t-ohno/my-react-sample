@@ -58,3 +58,17 @@ export type TodoData = {
   title: string;
   completed: boolean;
 };
+
+export type MenuChildItem = {
+  label: string;
+  gamen?: string;
+  param?: string;
+  enabled: boolean;
+  to: string;
+};
+
+export type MenuItem = {
+  label: string;
+  subtitle: string;
+  children?: MenuChildItem[];
+};

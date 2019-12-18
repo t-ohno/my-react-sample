@@ -8,7 +8,6 @@ export const StyledImageButton = styled.button`
   background-color: transparent;
   background-position: center center;
   background-repeat: no-repeat;
-  background: transparent url('/assets/images/buttons/loginbutton_up.png') center center no-repeat;
 
   min-width: 24px;
   min-height: 24px;
