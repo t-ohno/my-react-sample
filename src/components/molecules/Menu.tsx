@@ -59,6 +59,7 @@ const StyledMenu = styled.nav`
         filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.6));
 
         li {
+          box-sizing: border-box;
           padding: 5px;
           background: rgba(240, 250, 255, 1);
           color: rgba(5, 130, 220, 1);

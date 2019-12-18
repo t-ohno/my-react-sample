@@ -37,20 +37,19 @@ interface Props extends TextBoxProps {
   label: string;
 }
 
-export default class LoginUsername extends React.Component<Props> {
-  static defaultProps = {
-    name: 'username',
-    placeholder: 'username',
-    required: true
-  };
+const LoginUsername: React.FunctionComponent<Props> = (props: Props) => {
+  return (
+    <StyledUsername>
+      <span>{props.label}</span>
+      <TextBox {...props} />
+      {props.required && <span>*</span>}
+    </StyledUsername>
+  );
+};
 
-  render() {
-    return (
-      <StyledUsername>
-        <span>{this.props.label}</span>
-        <TextBox {...this.props} />
-        {this.props.required && <span>*</span>}
-      </StyledUsername>
-    );
-  }
-}
+LoginUsername.defaultProps = {
+  name: 'username',
+  placeholder: 'username'
+};
+
+export default LoginUsername;

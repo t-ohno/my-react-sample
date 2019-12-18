@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled, { keyframes } from 'styled-components';
 import { MessageLevel } from 'app/types';
@@ -41,6 +41,18 @@ const StyledMessageBar = styled.div`
   background-color: rgba(200, 240, 255, 1);
   z-index: 1;
   animation: ${showMessageBar} 300ms ease-in-out;
+
+  &.info {
+    background-color: rgba(200, 240, 255, 1);
+  }
+
+  &.warn {
+    background-color: rgba(204, 204, 204, 1);
+  }
+
+  &.err {
+    background-color: rgba(248, 180, 45, 1);
+  }
 `;
 
 const MessageArea = styled.div`
@@ -76,9 +88,20 @@ interface Props {
 
 const MessageBar: React.FunctionComponent<Props> = (props: Props) => {
   const [t] = useTranslation();
+  const [className, setClassName] = useState('info');
+
+  useEffect(() => {
+    if (props.messageLevel === MessageLevel.ERR) {
+      setClassName('err');
+    } else if (props.messageLevel === MessageLevel.WARN) {
+      setClassName('warn');
+    } else {
+      setClassName('info');
+    }
+  }, [props.messageLevel]);
 
   return (
-    <StyledMessageBar>
+    <StyledMessageBar className={className}>
       <MessageArea>
         <Icon>{props.messageLevel}</Icon>
         <Message>{props.message}</Message>

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Password, { PasswordProps } from 'components/atoms/Password';
 
-const StyledLable = styled.label`
+const StyledLoginPassword = styled.label`
   display: inline-block;
   height: 25px;
 
@@ -37,18 +37,19 @@ interface Props extends PasswordProps {
   label: string;
 }
 
-const LoginPassword: React.FunctionComponent<Props> = (props: Props) => (
-  <StyledLable>
-    <span>{props.label}</span>
-    <Password {...props} />
-    {props.required && <span>*</span>}
-  </StyledLable>
-);
+const LoginPassword: React.FunctionComponent<Props> = (props: Props) => {
+  return (
+    <StyledLoginPassword>
+      <span>{props.label}</span>
+      <Password {...props} />
+      {props.required && <span>*</span>}
+    </StyledLoginPassword>
+  );
+};
 
 LoginPassword.defaultProps = {
   name: 'password',
-  placeholder: 'password',
-  required: true
+  placeholder: 'password'
 };
 
 export default LoginPassword;
