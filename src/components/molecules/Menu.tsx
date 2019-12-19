@@ -135,7 +135,7 @@ const Menu: React.FunctionComponent<Props> = ({ menuItems }) => {
       <ul>
         {menuItems.map(item => {
           return (
-            <li>
+            <li key={item.label}>
               <p>
                 <span>{item.label}</span>
               </p>
@@ -143,7 +143,7 @@ const Menu: React.FunctionComponent<Props> = ({ menuItems }) => {
                 {item.children &&
                   item.children.map(child => {
                     return (
-                      <li>
+                      <li key={child.label}>
                         <Link to={child.to}>{child.label}</Link>
                       </li>
                     );

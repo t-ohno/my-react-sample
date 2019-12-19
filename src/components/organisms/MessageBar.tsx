@@ -61,19 +61,37 @@ const MessageArea = styled.div`
   flex: 1;
   align-items: center;
   justify-content: flex-start;
-  padding-left: 140px;
+  padding: 0 20px 5px 140px;
   width: 100%;
+  max-height: 100%;
+  min-height: 0;
 `;
 
 const Icon = styled.div`
-  background-color: white;
+  background-color: rgba(255, 255, 255, 1);
   border-radius: 5px;
   width: 98px;
   height: 88px;
 `;
 
-const Message = styled.p`
+const Messages = styled.div`
+  overflow: auto;
+  overflow-wrap: break-word;
+  word-break: break-all;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
   margin-left: 20px;
+  width: 100%;
+  max-height: 100%;
+  min-height: 0;
+`;
+
+const Message = styled.p`
+  flex: none;
+  margin: 0;
 `;
 
 const HideButton = styled(Button)`
@@ -104,7 +122,9 @@ const MessageBar: React.FunctionComponent<Props> = (props: Props) => {
     <StyledMessageBar className={className}>
       <MessageArea>
         <Icon>{props.messageLevel}</Icon>
-        <Message>{props.message}</Message>
+        <Messages>
+          {props.message && props.message.split('\n').map((message, index) => <Message key={index}>{message}</Message>)}
+        </Messages>
       </MessageArea>
       <HideButton onClick={props.onClose}>{t('organisms.messageBar.hideButton')}</HideButton>
     </StyledMessageBar>
@@ -112,8 +132,7 @@ const MessageBar: React.FunctionComponent<Props> = (props: Props) => {
 };
 
 MessageBar.defaultProps = {
-  messageLevel: MessageLevel.INFO,
-  message: undefined
+  messageLevel: MessageLevel.INFO
 };
 
 export default MessageBar;

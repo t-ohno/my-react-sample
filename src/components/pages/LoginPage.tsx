@@ -35,8 +35,12 @@ const LoginPage: React.FunctionComponent = () => {
   const [message, setMessage] = useState('');
   const [visibleMessageBar, setVisibleMessageBar] = useState(false);
 
-  const showMessageBar = (value: any) => {
-    setMessage(value);
+  const showMessageBar = (errors: object) => {
+    const values: string[] = Object.entries(errors).map(([_name, errorMessage]) => errorMessage);
+    if (values.length === 0) {
+      return;
+    }
+    setMessage(values.join('\n'));
     setVisibleMessageBar(true);
   };
 
@@ -58,32 +62,31 @@ const LoginPage: React.FunctionComponent = () => {
           window.location.pathname = '/Page1';
         }}
         validationSchema={Yup.object().shape({
-          username: Yup.string().required('username を入力してください。'),
-          password: Yup.string().required('password を入力してください。')
+          username: Yup.string().required(t('validate.required', { fieldName: t('pages.loginPage.username.label') })),
+          password: Yup.string().required(t('validate.required', { fieldName: t('pages.loginPage.password.label') }))
         })}
-        render={({ values, errors, touched, isSubmitting, handleChange, handleBlur, handleSubmit }) => (
+      >
+        {({ values, errors, touched, isSubmitting, handleChange, handleBlur, handleSubmit }) => (
           <Wrapper onSubmit={handleSubmit}>
             <Logo src="/assets/images/logo.svg" alt="logo" />
             <LoginUsername
-              id="username"
-              label={t('pages.loginPage.username')}
+              label={t('pages.loginPage.username.label')}
               defaultValue={values.username}
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            {errors.username && touched.username && showMessageBar(errors.username)}
+            {errors.username && touched.username && showMessageBar(errors)}
             <LoginPassword
-              id="password"
-              label={t('pages.loginPage.password')}
+              label={t('pages.loginPage.password.label')}
               defaultValue={values.password}
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            {errors.password && touched.password && showMessageBar(errors.password)}
+            {errors.password && touched.password && showMessageBar(errors)}
             <LoginButton type="submit" disabled={isSubmitting} />
           </Wrapper>
         )}
-      />
+      </Formik>
     </>
   );
 };

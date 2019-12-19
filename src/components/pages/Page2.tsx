@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import { BasePageProps, MessageLevel } from 'app/types';
 import Template from 'components/templates/AuthenticatedTemplate';
-import TextBox from 'components/atoms/TextBox';
-import Button from 'components/atoms/Button';
+import { StyledTextArea } from 'components/atoms/TextArea';
+import { StyledButton } from 'components/atoms/Button';
 import RadioButton from 'components/atoms/RadioButton';
 
 const Title = styled.h1`
@@ -18,10 +18,19 @@ const RadioButtons = styled.div`
 
 const MessageInput = styled.div`
   display: flex;
+  align-items: center;
 
   button {
     margin-left: 10px;
   }
+`;
+
+const Message = styled(StyledTextArea)`
+  height: 80px;
+`;
+
+const ShowButton = styled(StyledButton)`
+  height: 24px;
 `;
 
 interface Props extends BasePageProps {}
@@ -29,12 +38,14 @@ interface Props extends BasePageProps {}
 const Page2: React.FunctionComponent<Props> = () => {
   const [t] = useTranslation();
 
-  const [messageLevel, setMessageLevel]: any = React.useState(MessageLevel.INFO);
-  const [messageBarValue, setMessageBarValue] = React.useState('');
+  const [messageLevel, setMessageLevel] = React.useState<number>(MessageLevel.INFO);
+  const [messageBarValue, setMessageBarValue] = React.useState();
   const [visibleMessageBar, setVisibleMessageBar] = React.useState(false);
 
-  const radioChange = (e: React.ChangeEvent<HTMLInputElement>) => setMessageLevel(e.target.value);
-  const textChange = (e: React.ChangeEvent<HTMLInputElement>) => setMessageBarValue(e.target.value);
+  const radioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setMessageLevel(parseInt(e.target.value));
+  };
+  const textChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => setMessageBarValue(e.target.value);
 
   return (
     <Template
@@ -73,14 +84,14 @@ const Page2: React.FunctionComponent<Props> = () => {
             defaultChecked={messageLevel === MessageLevel.ERR}
           />
         </RadioButtons>
-        <TextBox value={messageBarValue} onChange={textChange} />
-        <Button
+        <Message value={messageBarValue} onChange={textChange} />
+        <ShowButton
           onClick={() => {
             setVisibleMessageBar(true);
           }}
         >
           {t('pages.page2.showMessageBar')}
-        </Button>
+        </ShowButton>
       </MessageInput>
     </Template>
   );
