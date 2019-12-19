@@ -11,14 +11,14 @@ stories.add(
   () => (
     <Suspense fallback="loading">
       <MessageBar
-        messageLevel={select(
+        messageLevel={select<number>(
           'messageLevel',
           {
             INFO: MessageLevel.INFO,
             WARN: MessageLevel.WARN,
             ERR: MessageLevel.ERR
           },
-          ''
+          0
         )}
         message={text('message', 'message')}
         onClose={() => {}}
