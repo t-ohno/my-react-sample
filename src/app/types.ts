@@ -72,3 +72,8 @@ export type MenuItem = {
   subtitle: string;
   children?: MenuChildItem[];
 };
+
+export type SupportLanguage = {
+  value: string;
+  labelKey: string;
+};

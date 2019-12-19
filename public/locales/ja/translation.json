@@ -1,7 +1,15 @@
 {
   "lang": {
     "en": "English",
-    "ja": "Japanese"
+    "fr": "French",
+    "de": "German",
+    "it": "Italian",
+    "ja": "Japanese",
+    "gd": "Scottish",
+    "sv": "Swedish"
+  },
+  "validate": {
+    "required": "{{fieldName}} を入力してください。"
   },
   "molecules": {
     "menu": {
@@ -78,8 +86,12 @@
   },
   "pages": {
     "loginPage": {
-      "username": "ユーザーID",
-      "password": "パスワード"
+      "username": {
+        "label": "ユーザーID"
+      },
+      "password": {
+        "label": "パスワード"
+      }
     },
     "page1": {
       "title": "ページ１",

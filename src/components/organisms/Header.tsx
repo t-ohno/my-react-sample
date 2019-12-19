@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
-import { MenuItem } from 'app/types';
+import { SupportLanguage, MenuItem } from 'app/types';
 import Logo from 'components/atoms/Logo';
 import Menu from 'components/molecules/Menu';
 import ChangeLanguage from 'components/molecules/ChangeLanguage';
@@ -57,6 +57,11 @@ export interface HeaderProps {
 const Header: FunctionComponent<HeaderProps> = (props: HeaderProps) => {
   const [t] = useTranslation();
 
+  const supportLanguages: SupportLanguage[] = [
+    { value: 'en', labelKey: 'lang.en' },
+    { value: 'ja', labelKey: 'lang.ja' }
+  ];
+
   const menuItems: MenuItem[] = [
     {
       label: t('molecules.menu.menu1.title'),
@@ -97,7 +102,7 @@ const Header: FunctionComponent<HeaderProps> = (props: HeaderProps) => {
       <HeaderRow>
         <HeaderLeft>
           <Logo />
-          <ChangeLanguage />
+          <ChangeLanguage supportLanguages={supportLanguages} />
         </HeaderLeft>
         <HeaderRight>
           <LoginUserName name={t('organisms.header.loginUserName', { name: 'TestUser' })} />

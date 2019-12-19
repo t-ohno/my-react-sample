@@ -1,18 +1,18 @@
 import React, { FunctionComponent, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { SupportLanguage } from 'app/types';
 import Dropdown from 'components/atoms/Dropdown';
 import DropdownItem from 'components/atoms/DropdownItem';
 import { setLanguage } from 'app/actions';
 import { getLanguage } from 'app/selectors';
 import { Language } from 'app/types';
 
-const supportLanguages = [
-  { value: 'en', labelKey: 'lang.en' },
-  { value: 'ja', labelKey: 'lang.ja' }
-];
+interface Props {
+  supportLanguages: SupportLanguage[];
+}
 
-const ChangeLanguage: FunctionComponent = () => {
+const ChangeLanguage: FunctionComponent<Props> = ({ supportLanguages }) => {
   const [t] = useTranslation();
 
   const dispatch = useDispatch();
