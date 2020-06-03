@@ -14,7 +14,7 @@ jobs:
     - name: mkdir
       run: |
         mkdir ./dist
-        zip -r ./dist/my-react-sample.zip ./my-react-sample/
+        zip -r ./dist/my-react-sample.zip /home/runner/work/my-react-sample/
 
     - name: Run a one-line script
       run: echo Hello World.
