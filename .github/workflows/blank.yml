@@ -10,9 +10,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
+    - name: mkdir
+      run: |
+        mkdir ./dist
+        zip -r ./dist/my-react-sample.zip ./my-react-sample/
 
     - name: Run a one-line script
-      run: echo `pwd`
+      run: echo Hello World.
 
     - name: Run a multi-line script
       run: |
